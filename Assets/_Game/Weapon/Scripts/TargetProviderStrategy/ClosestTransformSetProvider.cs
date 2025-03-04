@@ -10,6 +10,6 @@ public class ClosestTransformSetProvider : TargetProviderStrategy
     private Transform source;
     public override Vector3 GetTargetPosition()
     {
-        return this.transformSet.GetClosestObject(this.source).position;
+        return this.transformSet.GetClosestFrom(this.source).position;
     }
 }

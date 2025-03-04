@@ -9,6 +9,9 @@ public class GunWrapper : Gun
 
     [SerializeField]
     private GunDecorator[] decorators;
+    
+    [SerializeField]
+    private bool autoInit;
 
     [SerializeField, ReadOnly]
     private Gun wrapper;
@@ -19,6 +22,14 @@ public class GunWrapper : Gun
     public override Bullet BulletPrefab => this.wrapper.BulletPrefab;
 
     public override event Action OnShot;
+
+    private void Start()
+    {
+        if (this.autoInit)
+        {
+            Initialize();
+        }
+    }
 
     public void Initialize()
     {

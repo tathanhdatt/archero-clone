@@ -4,10 +4,10 @@ using UnityEngine;
 public class BulletScarSpawner : MonoBehaviour
 {
     [SerializeField, Required]
-    private DamageDealer prefab;
+    private GameObject scarPrefab;
 
     public void Spawn()
     {
-        Instantiate(this.prefab, transform.position, Quaternion.identity);
+        Instantiate(this.scarPrefab, transform.position, Quaternion.identity);
     }
 }

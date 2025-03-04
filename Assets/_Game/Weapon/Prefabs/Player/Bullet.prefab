@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede27bae75f04362a20ce6f500d54f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  scarPrefab: {fileID: 3072932533691151757, guid: 19ef7a54fb824ca4c8a0899ba299c5c7, type: 3}
 --- !u!1 &5265790181360469954
 GameObject:
   m_ObjectHideFlags: 0

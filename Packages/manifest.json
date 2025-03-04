@@ -2,6 +2,7 @@
   "dependencies": {
     "com.cysharp.unitask": "file:D:/1/Assets/_myunitypackages/com.dt/com.cyscharp.unitask",
     "com.dt.attribute": "file:D:/1/Assets/_myunitypackages/com.dt/com.dt.attribute",
+    "com.dt.behaviourtree.core": "file:D:/1/Assets/_myunitypackages/BehaviourTree",
     "com.dt.condition.core": "file:D:/1/Assets/_myunitypackages/com.dt/com.dt.condition.core",
     "com.dt.condition.extension.wait": "file:D:/1/Assets/_myunitypackages/com.dt/com.dt.condition.extension.wait",
     "com.dt.extension": "file:D:/1/Assets/_myunitypackages/com.dt/com.dt.extension",

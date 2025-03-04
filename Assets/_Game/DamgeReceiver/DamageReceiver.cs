@@ -6,7 +6,7 @@ public class DamageReceiver : MonoBehaviour
 {
     [SerializeField, Required]
     private FloatVariable maxHealth;
-    
+
     [SerializeField]
     private FloatVariable currentHealth;
 
@@ -16,7 +16,7 @@ public class DamageReceiver : MonoBehaviour
     public float CurrentHealth => this.currentHealth.Value;
     public float MaxHealth => this.maxHealth.Value;
     public Element Element => this.element;
-    
+
     public UnityEvent<DamageType> onTakenDamage;
     public UnityEvent onDeath;
 
@@ -26,16 +26,20 @@ public class DamageReceiver : MonoBehaviour
         {
             this.currentHealth = ScriptableObject.CreateInstance<FloatVariable>();
         }
+
         this.currentHealth.Value = this.maxHealth.Value;
     }
 
     public void TakeDamage(float incomingDamage, DamageType type = DamageType.Normal)
     {
         this.currentHealth.Value -= incomingDamage;
-        this.onTakenDamage?.Invoke(type);
         if (this.currentHealth.Value <= 0)
         {
             this.onDeath?.Invoke();
+        }
+        else
+        {
+            this.onTakenDamage?.Invoke(type);
         }
     }
 }

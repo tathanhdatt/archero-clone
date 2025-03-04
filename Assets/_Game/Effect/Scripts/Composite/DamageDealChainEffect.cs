@@ -72,9 +72,9 @@ public class DamageDealChainEffect : DamageDealEffectComponent
             LineRenderer lineRenderer = Instantiate(this.lineLight);
             lineRenderer.positionCount = 2;
             lineRenderer.SetPosition(0, 
-                this.detectedReceivers[i].transform.parent.position.Assign(y: 1));
+                this.detectedReceivers[i].transform.parent.position.ReplaceY(1));
             lineRenderer.SetPosition(1,
-                this.detectedReceivers[i + 1].transform.parent.position.Assign(y: 1));
+                this.detectedReceivers[i + 1].transform.parent.position.ReplaceY(1));
             this.lineRenderers.Add(lineRenderer);
         }
     }

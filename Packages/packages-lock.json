@@ -12,6 +12,14 @@
       "source": "local",
       "dependencies": {}
     },
+    "com.dt.behaviourtree.core": {
+      "version": "file:D:/1/Assets/_myunitypackages/BehaviourTree",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.cysharp.unitask": "2.2.5"
+      }
+    },
     "com.dt.condition.core": {
       "version": "file:D:/1/Assets/_myunitypackages/com.dt/com.dt.condition.core",
       "depth": 0,
