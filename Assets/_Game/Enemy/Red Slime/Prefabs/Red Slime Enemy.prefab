@@ -1470,7 +1470,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8959217168466276934}
   - component: {fileID: 352719028306959243}
-  - component: {fileID: 3710991007269176284}
   - component: {fileID: 8960879544570208763}
   - component: {fileID: 2462765447855426458}
   m_Layer: 0
@@ -1528,19 +1527,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3710991007269176284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4974001195902549013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5681d45b098a4b88a0bd87107629d1ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAliveSet: {fileID: 11400000, guid: faa3ddbf20803104186de7327a15f4f2, type: 2}
 --- !u!114 &8960879544570208763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2630,6 +2616,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -21.590412
       objectReference: {fileID: 0}
+    - target: {fileID: 95457531584545886, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 7fd6e292b104ec845bd7f8168cc35832, type: 2}
     - target: {fileID: 95457531584545886, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
       propertyPath: m_Controller
       value: 

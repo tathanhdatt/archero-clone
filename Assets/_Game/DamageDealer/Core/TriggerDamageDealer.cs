@@ -8,9 +8,6 @@ public class TriggerDamageDealer : DamageDealer
     private FloatVariable damage;
 
     [SerializeField, Required]
-    private BoolVariable piercing;
-
-    [SerializeField, Required]
     private DamageableElements damageableElements;
 
     private Collider cachedCollider;
@@ -44,7 +41,6 @@ public class TriggerDamageDealer : DamageDealer
     {
         this.onBeforeDamage?.Invoke(this.cachedDamageReceiver, this.damage.Value);
         this.cachedDamageReceiver.TakeDamage(this.damage.Value);
-        if (this.piercing.value) return;
         this.onAfterDamage?.Invoke(this.cachedDamageReceiver, this.damage.Value);
     }
 }
