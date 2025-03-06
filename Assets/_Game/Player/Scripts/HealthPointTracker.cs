@@ -13,9 +13,19 @@ public class HealthPointTracker : MonoBehaviour
     [SerializeField, Required]
     private Image visual;
 
-    private void LateUpdate()
+    private void OnEnable()
+    {
+        this.currentHealth.OnValueChanged += OnValueChangedHandler;
+    }
+
+    private void OnValueChangedHandler()
     {
         float percentage = this.currentHealth.Value / this.maxHealth.Value;
         this.visual.fillAmount = percentage;
+    }
+
+    private void OnDisable()
+    {
+        this.currentHealth.OnValueChanged -= OnValueChangedHandler;
     }
 }

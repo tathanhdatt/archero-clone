@@ -9,8 +9,16 @@ public class Bullet : MonoBehaviour
 
     [SerializeField, Required]
     private TargetProviderStrategy targetProviderStrategy;
+    
+    [SerializeField, Required]
+    private EffectCollection effectCollection;
 
     public UnityEvent onDespawn;
+
+    public void Initialize()
+    {
+        this.effectCollection.UpdateEffect();
+    }
 
     public void Fire()
     {

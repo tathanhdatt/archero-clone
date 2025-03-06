@@ -10,7 +10,7 @@ public class DamageDealEffectComposite : DamageDealEffectComponent
     {
         foreach (DamageDealEffectComponent component in this.components)
         {
-            if (component.isActiveAndEnabled)
+            if (component.gameObject.activeSelf)
             {
                 component.ApplyEffect(receiver, damage);
             }
