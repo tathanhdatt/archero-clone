@@ -11,12 +11,12 @@ public class FloatVariableUpdater : SkillUpdaterLeaf
     [SerializeField, Required]
     private FloatVariable variable;
 
-    [ShowIf(nameof(modifiedType), NumberModifiedType.AddWithPercentage)]
+    [ShowIf(nameof(UsePercentage))]
     [SerializeField, Range(-1f, 1f)]
     private float percentage;
 
     [SerializeField]
-    [HideIf(nameof(modifiedType), NumberModifiedType.AddWithPercentage)]
+    [HideIf(nameof(UseValue))]
     private float value;
     
     [TextArea(1, 10)]
@@ -28,7 +28,7 @@ public class FloatVariableUpdater : SkillUpdaterLeaf
     {
         switch (this.modifiedType)
         {
-            case NumberModifiedType.ChangeValue:
+            case NumberModifiedType.SetValue:
                 this.variable.Value = this.value;
                 break;
             case NumberModifiedType.AddWithValue:
@@ -37,8 +37,21 @@ public class FloatVariableUpdater : SkillUpdaterLeaf
             case NumberModifiedType.AddWithPercentage:
                 this.variable.Value += this.variable.Value * this.percentage;
                 break;
+            case NumberModifiedType.SetPercentage:
+                this.variable.Value = this.percentage;
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private bool UsePercentage()
+    {
+        return this.modifiedType is NumberModifiedType.AddWithPercentage or NumberModifiedType.SetPercentage;
+    }
+
+    private bool UseValue()
+    {
+        return this.modifiedType is NumberModifiedType.AddWithValue or NumberModifiedType.SetValue;
     }
 }

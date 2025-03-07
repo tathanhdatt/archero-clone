@@ -14,10 +14,6 @@ public class DamageDealEffectComposite : DamageDealEffectComponent
             {
                 component.ApplyEffect(receiver, damage);
             }
-            else
-            {
-                Debug.LogWarning($"{component.name}: components are disabled", component.gameObject);
-            }
         }
     }
 

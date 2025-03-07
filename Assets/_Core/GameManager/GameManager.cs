@@ -14,13 +14,18 @@ namespace Core.Game
         [Line]
         [SerializeField, Required]
         private DialogManager dialogManager;
+        
+        [Line]
+        [SerializeField]
+        private SkillUpdaterData[] skillUpdaterData;
 
+        public SkillUpdaterData[] SkillUpdaterData => this.skillUpdaterData;
         public IAudioService AudioService { get; private set; }
         public IPoolService PoolService { get; private set; }
 
-        private void Awake()
+        private async void Awake()
         {
-            Initialize();
+            await Initialize();
         }
 
         private async UniTask Initialize()
@@ -43,31 +48,22 @@ namespace Core.Game
             ServiceLocator.Register(PoolService);
         }
 
-
-
         private async void Start()
         {
+            this.presenter.Initialize(this);
+            await this.presenter.InitialViewPresenters();
             await OnEnter();
         }
 
         private async UniTask OnEnter()
         {
-
+            await UniTask.CompletedTask;
+            Messenger.AddListener(Message.CombatLevelUp, CombatLevelUpHandler);
         }
 
-        private void ClearLevelHandler()
+        private async void CombatLevelUpHandler()
         {
-            ClearLevel();
-        }
-
-        private async void PlayLevel(int levelId)
-        {
-
-        }
-
-        private void ClearLevel()
-        {
-
+            await this.presenter.GetViewPresenter<ScrollSkillViewPresenter>().Show();
         }
 
 #if UNITY_EDITOR

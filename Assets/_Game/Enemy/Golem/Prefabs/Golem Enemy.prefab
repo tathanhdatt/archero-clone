@@ -2454,7 +2454,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3282,10 +3282,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1738351506779507284}
     m_Modifications:
-    - target: {fileID: 1430826702236863754, guid: fd23f9478f9da14418555bae05062a33, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4612490144138942497, guid: fd23f9478f9da14418555bae05062a33, type: 3}
       propertyPath: m_Name
       value: Damage Receiver Hp Tracker

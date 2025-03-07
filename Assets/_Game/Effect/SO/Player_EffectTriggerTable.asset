@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectTriggers:
   - type: 0
-    active: 0
+    active: 1
   - type: 1
     active: 1

@@ -6,7 +6,7 @@ public abstract class BaseViewPresenter
 {
     private readonly List<BaseView> views = new List<BaseView>(4);
     protected GamePresenter Presenter { get; private set; }
-    public Transform Transform { get; private set; }
+    protected Transform Transform { get; private set; }
     public bool IsShowing { get; private set; }
 
     protected BaseViewPresenter(GamePresenter presenter, Transform transform)

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DamageReceiver : MonoBehaviour
+public class DamageReceiver : InitializableMono
 {
     [SerializeField, Required]
     private FloatVariable maxHealth;
@@ -20,14 +20,26 @@ public class DamageReceiver : MonoBehaviour
     public UnityEvent<DamageType> onTakenDamage;
     public UnityEvent onDeath;
 
-    private void OnEnable()
+    public override void Initialize()
     {
         if (this.currentHealth == null)
         {
             this.currentHealth = ScriptableObject.CreateInstance<FloatVariable>();
         }
+        else
+        {
+            this.currentHealth.OnValueChanged += CurrentHealthOnOnValueChanged;
+        }
 
         this.currentHealth.Value = this.maxHealth.Value;
+    }
+
+    private void CurrentHealthOnOnValueChanged()
+    {
+        if (this.currentHealth.Value > this.maxHealth.Value)
+        {
+            this.currentHealth.Value = this.maxHealth.Value;
+        }
     }
 
     public void TakeDamage(float incomingDamage, DamageType type = DamageType.Normal)
@@ -40,6 +52,14 @@ public class DamageReceiver : MonoBehaviour
         else
         {
             this.onTakenDamage?.Invoke(type);
+        }
+    }
+
+    public override void Terminate()
+    {
+        if (this.currentHealth != null)
+        {
+            this.currentHealth.OnValueChanged -= CurrentHealthOnOnValueChanged;
         }
     }
 }

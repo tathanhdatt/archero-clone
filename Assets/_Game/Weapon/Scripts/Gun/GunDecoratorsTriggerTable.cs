@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gun Decorators Trigger Table")]
 public class GunDecoratorsTriggerTable : ScriptableObject
 {
-    public GunDecoratorTrigger[] triggers;
+    public List<GunDecoratorTrigger> triggers;
     public event Action<GunDecoratorTrigger> OnTriggerChanged;
 
     public void UpdateTrigger(GunDecoratorType type, bool active)
@@ -16,6 +17,13 @@ public class GunDecoratorsTriggerTable : ScriptableObject
             OnTriggerChanged?.Invoke(trigger);
             break;
         }
+    }
+
+    private void OnEnable()
+    {
+        if (this.triggers.Count == 0) return;
+        this.triggers.ForEach(trigger => trigger.active = false);
+        this.triggers[0].active = true;
     }
 }
 

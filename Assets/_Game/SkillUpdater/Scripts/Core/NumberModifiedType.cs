@@ -1,6 +1,7 @@
 ﻿public enum NumberModifiedType
 {
-    ChangeValue = 0,
+    SetValue = 0,
     AddWithValue = 1,
-    AddWithPercentage = 2
+    AddWithPercentage = 2,
+    SetPercentage = 3,
 }

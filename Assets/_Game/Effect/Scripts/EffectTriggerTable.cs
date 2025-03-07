@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Effect Trigger Table")]
 public class EffectTriggerTable : ScriptableObject
 {
-    public EffectTrigger[] effectTriggers;
+    public List<EffectTrigger> effectTriggers;
 
     public void UpdateActive(EffectType type, bool active)
     {
@@ -23,6 +24,11 @@ public class EffectTriggerTable : ScriptableObject
         }
 
         return null;
+    }
+
+    private void OnEnable()
+    {
+        this.effectTriggers.ForEach(trigger => trigger.active = false);
     }
 }
 

@@ -8,6 +8,9 @@ public class MoveForwardDecorator : StateDecorator
     [SerializeField]
     private float speed;
 
+    [SerializeField, Required]
+    private Rigidbody rb;
+
     protected override async UniTask OnStateEnter()
     {
         await UniTask.CompletedTask;
@@ -16,7 +19,7 @@ public class MoveForwardDecorator : StateDecorator
     protected override async UniTask OnStateUpdate()
     {
         await UniTask.CompletedTask;
-        RootTransform.Translate(Vector3.forward * (this.speed * Time.deltaTime));
+        this.rb.linearVelocity = this.rb.transform.forward * this.speed;
     }
 
     protected override async UniTask OnStateExit()

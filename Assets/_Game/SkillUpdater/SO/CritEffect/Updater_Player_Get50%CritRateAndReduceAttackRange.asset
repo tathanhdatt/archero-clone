@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb2a7ccfb7a4581a01e6e0bb2144652, type: 3}
+  m_Name: Updater_Player_Get50%CritRateAndReduceAttackRange
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 11400000, guid: c91590b4558eff94385aa0a0ce8a36ea, type: 2}
+  - {fileID: 11400000, guid: 396647c4400fb3c46a16576a2b2b6678, type: 2}
+  cachedDescription: '50% crit
+
+    Reduce 20% Attack Range
+
+'

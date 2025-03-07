@@ -523,6 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 3272090800799468069}
   speed: 1
+  rb: {fileID: 1944843724183664582}
 --- !u!1 &2033743838675647960
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +634,7 @@ MonoBehaviour:
   isMet: 0
   animator: {fileID: 3219411876838220135}
   animationName: GetHit
-  animationDuration: 0
+  animationDuration: 0.43333334
   isAnimationComplete: 0
 --- !u!1 &2912720113902842952
 GameObject:
@@ -742,6 +743,7 @@ GameObject:
   - component: {fileID: 1944843724183664582}
   - component: {fileID: 6711042003140941312}
   - component: {fileID: 695880802127644194}
+  - component: {fileID: 4425474069251815352}
   m_Layer: 0
   m_Name: Turtle Shell Enemy
   m_TagString: Untagged
@@ -791,10 +793,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &6711042003140941312
 MonoBehaviour:
@@ -830,6 +832,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4425474069251815352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942277378830652533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d9616aba944a619ff0a22277f05777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initializables:
+  - {fileID: 14735610617619631}
 --- !u!1 &3975113571549046358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,7 +1302,7 @@ MonoBehaviour:
   isMet: 0
   animator: {fileID: 3219411876838220135}
   animationName: Die
-  animationDuration: 0
+  animationDuration: 2
   isAnimationComplete: 0
 --- !u!1 &5651264016139106283
 GameObject:
@@ -2288,7 +2304,7 @@ MonoBehaviour:
   - {fileID: 3936135544890212970}
   - {fileID: 8576910470041840809}
   root: {fileID: 7775633085056638961}
-  pingState: 1
+  pingState: 0
   currentRootState: {fileID: 0}
   lastRootState: {fileID: 0}
   isInitialized: 0
