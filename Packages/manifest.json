@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.av.compact-unity-event": "file:D:/1/Assets/_myunitypackages/Compact-Unity-Events-main",
+    "com.av.smart-hierarchy": "file:D:/1/Assets/_myunitypackages/Smart-Hierarchy-master",
+    "com.av.tags": "git@github.com:neon-age/Tags.git",
     "com.cysharp.unitask": "file:D:/1/Assets/_myunitypackages/com.dt/com.cyscharp.unitask",
     "com.dt.attribute": "file:D:/1/Assets/_myunitypackages/com.dt/com.dt.attribute",
     "com.dt.behaviourtree.core": "file:D:/1/Assets/_myunitypackages/BehaviourTree",
