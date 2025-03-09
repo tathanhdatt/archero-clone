@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 this.isStopped = false;
                 this.onStartMoved?.Invoke();
+                this.rb.isKinematic = false;
             }
         }
         else
@@ -83,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 this.isMoving = false;
                 this.onStop?.Invoke();
+                this.rb.isKinematic = true;
             }
         }
     }
