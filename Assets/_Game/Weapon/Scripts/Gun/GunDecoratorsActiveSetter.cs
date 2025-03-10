@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using Dt.Attribute;
+﻿using Dt.Attribute;
 using UnityEngine;
 
 public class GunDecoratorsActiveSetter : MonoBehaviour
 {
     [SerializeField]
-    private GunDecoratorItem[] items;
+    private TypeGunDecoratorDict items;
 
     [SerializeField, Required]
     private GunDecoratorsTriggerTable triggerTable;
@@ -13,69 +12,26 @@ public class GunDecoratorsActiveSetter : MonoBehaviour
     private void OnEnable()
     {
         RefreshAll();
-        this.triggerTable.OnTriggerChanged += OnTriggerChangedHandler;
+        this.triggerTable.OnTriggerActiveChanged += OnTriggerChangedHandler;
     }
 
-    private void OnTriggerChangedHandler(GunDecoratorTrigger trigger)
+    private void OnTriggerChangedHandler(GunDecoratorType type, bool active)
     {
-        ActiveDecorator(trigger);
+        this.items[type].gameObject.SetActive(active);
     }
 
     public void RefreshAll()
     {
-        foreach (GunDecoratorTrigger trigger in this.triggerTable.triggers)
+        foreach (GunDecoratorType type in this.triggerTable.triggersDict.Keys)
         {
-            ActiveDecorator(trigger);
+            bool isActive = this.triggerTable.triggersDict[type];
+            this.items[type].gameObject.SetActive(isActive);
         }
     }
 
-    private void ActiveDecorator(GunDecoratorTrigger trigger)
-    {
-        GunDecorator decorator = GetDecorator(trigger.type);
-        if (decorator == null)
-        {
-            Debug.LogWarning($"Can not find decorator of type {trigger.type}", gameObject);
-            return;
-        }
-
-        if (!trigger.active) return;
-        decorator.gameObject.SetActive(true);
-        DisableConflictDecorators(trigger.conflictTypes);
-    }
-
-    private void DisableConflictDecorators(GunDecoratorType[] conflictTypes)
-    {
-        foreach (GunDecoratorItem item in this.items)
-        {
-            if (conflictTypes.Contains(item.type))
-            {
-                item.decorator.gameObject.SetActive(false);
-            }
-        }
-    }
-
-    private GunDecorator GetDecorator(GunDecoratorType type)
-    {
-        foreach (GunDecoratorItem item in this.items)
-        {
-            if (item.type == type)
-            {
-                return item.decorator;
-            }
-        }
-
-        return null;
-    }
 
     private void OnDisable()
     {
-        this.triggerTable.OnTriggerChanged -= OnTriggerChangedHandler;
+        this.triggerTable.OnTriggerActiveChanged -= OnTriggerChangedHandler;
     }
-}
-
-[System.Serializable]
-public class GunDecoratorItem
-{
-    public GunDecorator decorator;
-    public GunDecoratorType type;
 }

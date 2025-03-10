@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamageableElements : ScriptableObject
 {
     public bool exclude;
+    public List<Tag> damageTag;
     public List<Element> excludeElements;
     public List<Element> includeElements;
 

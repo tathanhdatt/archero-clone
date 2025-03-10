@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: {fileID: 11400000, guid: 4c05f38bc4e2ace439978565f441701f, type: 2}
-  damageableElements: {fileID: 11400000, guid: 99885fd9cc3b42243b8bd218cce8bbb6, type: 2}
+  damageableTag: {fileID: 11400000, guid: 054143306554b674ea4964869f138a05, type: 2}
   onBeforeDamage:
     m_PersistentCalls:
       m_Calls: []

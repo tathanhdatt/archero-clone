@@ -1507,6 +1507,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4650039358718364834}
     m_Modifications:
+    - target: {fileID: 1043090953024869108, guid: 7b34b5229e4c57048add87ad92c9a462, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 4bc469d56e99dd8409d0c8abea631f48, type: 3}
     - target: {fileID: 1961786899327579974, guid: 7b34b5229e4c57048add87ad92c9a462, type: 3}
       propertyPath: joystick
       value: 
@@ -1554,6 +1558,10 @@ PrefabInstance:
     - target: {fileID: 3548260900991726794, guid: 7b34b5229e4c57048add87ad92c9a462, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970552837338555624, guid: 7b34b5229e4c57048add87ad92c9a462, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5683342933463038174, guid: 7b34b5229e4c57048add87ad92c9a462, type: 3}
       propertyPath: joystick

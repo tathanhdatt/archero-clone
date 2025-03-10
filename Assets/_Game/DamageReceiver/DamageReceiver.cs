@@ -1,4 +1,5 @@
-﻿using Dt.Attribute;
+﻿using System.Collections.Generic;
+using Dt.Attribute;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,11 +12,10 @@ public class DamageReceiver : InitializableMono
     private FloatVariable currentHealth;
 
     [SerializeField, Required]
-    private Element element;
+    private List<Tag> tags;
 
     public float CurrentHealth => this.currentHealth.Value;
     public float MaxHealth => this.maxHealth.Value;
-    public Element Element => this.element;
 
     public UnityEvent<DamageType> onTakenDamage;
     public UnityEvent onDeath;
@@ -53,6 +53,11 @@ public class DamageReceiver : InitializableMono
         {
             this.onTakenDamage?.Invoke(type);
         }
+    }
+
+    public bool ContainsTag(Tag tag)
+    {
+        return this.tags.Contains(tag);
     }
 
     public override void Terminate()

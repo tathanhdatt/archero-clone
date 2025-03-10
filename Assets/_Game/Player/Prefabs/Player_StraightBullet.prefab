@@ -107,11 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fe237655d041b39fe1709e292bd234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effects:
-  - type: 0
-    effect: {fileID: 945873116383748024}
-  - type: 1
-    effect: {fileID: 4592704219322865015}
+  effectsDict:
+    m_keys: 0000000001000000
+    m_values:
+    - {fileID: 945873116383748024}
+    - {fileID: 4592704219322865015}
   triggerTable: {fileID: 11400000, guid: 6167ad3163da4c444aa6314d3201a891, type: 2}
 --- !u!1 &8764085034321920208
 GameObject:
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: {fileID: 11400000, guid: 4c05f38bc4e2ace439978565f441701f, type: 2}
-  damageableElements: {fileID: 11400000, guid: 99885fd9cc3b42243b8bd218cce8bbb6, type: 2}
+  damageableTag: {fileID: 11400000, guid: 054143306554b674ea4964869f138a05, type: 2}
   onBeforeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -344,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4293695239332029161, guid: e97bf2c70205a4c4da767c99b77faf95, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7560060821774810108, guid: e97bf2c70205a4c4da767c99b77faf95, type: 3}
       propertyPath: m_LocalPosition.x

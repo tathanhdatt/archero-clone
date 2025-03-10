@@ -15,7 +15,7 @@ public class DamageDealChainEffect : DamageDealEffectComponent
     private List<DamageReceiver> detectedReceivers = new List<DamageReceiver>(10);
 
     [SerializeField, Required]
-    private DamageableElements damageableElements;
+    private Tag damageableTag;
 
     [SerializeField, Required]
     private LineRenderer lineLight;
@@ -31,6 +31,7 @@ public class DamageDealChainEffect : DamageDealEffectComponent
     {
         this.detectedReceivers.Clear();
         ClearVisualEffect();
+        if (!receiver.ContainsTag(this.damageableTag)) return;
         this.detectedReceivers.Add(receiver);
         DetectReceiver(receiver);
         if (this.detectedReceivers.IsEmpty()) return;
@@ -51,7 +52,7 @@ public class DamageDealChainEffect : DamageDealEffectComponent
             DamageReceiver receiver = this.colliders[i].GetComponent<DamageReceiver>();
             if (receiver == null) continue;
             if (this.detectedReceivers.Contains(receiver)) continue;
-            if (!this.damageableElements.CanDamageType(receiver.Element)) continue;
+            if (!receiver.ContainsTag(this.damageableTag)) continue;
             this.detectedReceivers.Add(receiver);
             DetectReceiver(receiver);
         }

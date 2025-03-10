@@ -8,7 +8,7 @@ public class TriggerDamageDealer : DamageDealer
     private FloatVariable damage;
 
     [SerializeField, Required]
-    private DamageableElements damageableElements;
+    private Tag damageableTag;
 
     private Collider cachedCollider;
     private DamageReceiver cachedDamageReceiver;
@@ -31,7 +31,7 @@ public class TriggerDamageDealer : DamageDealer
 
     private void DealDamageIfDamageable()
     {
-        if (this.damageableElements.CanDamageType(this.cachedDamageReceiver.Element))
+        if (this.cachedDamageReceiver.ContainsTag(this.damageableTag))
         {
             DealDamage();
         }
