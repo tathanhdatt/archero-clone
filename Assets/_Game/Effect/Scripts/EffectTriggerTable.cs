@@ -1,34 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Effect Trigger Table")]
 public class EffectTriggerTable : ScriptableObject
 {
-    public List<EffectTrigger> effectTriggers;
+    public TypeEffectAndBoolDict effectsDict;
 
     public void UpdateActive(EffectType type, bool active)
     {
-        EffectTrigger trigger = GetEffectTrigger(type);
-        trigger.active = active;
-    }
-
-    private EffectTrigger GetEffectTrigger(EffectType effectType)
-    {
-        foreach (EffectTrigger trigger in this.effectTriggers)
-        {
-            if (trigger.type == effectType)
-            {
-                return trigger;
-            }
-        }
-
-        return null;
+        this.effectsDict[type] = active;
     }
 
     private void OnEnable()
     {
-        this.effectTriggers.ForEach(trigger => trigger.active = false);
+        for (int i = 0; i < this.effectsDict.Count; i++)
+        {
+            this.effectsDict[this.effectsDict.Keys.ElementAt(i)] = false;
+        }
     }
 }
 

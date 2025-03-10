@@ -1,11 +1,12 @@
-﻿using Dt.Attribute;
+﻿using System.Runtime.CompilerServices;
+using Dt.Attribute;
 using UnityEngine;
 
 public class EffectCollection : MonoBehaviour
 {
     [SerializeField]
-    private EffectItem[] effects;
-    
+    private TypeEffectComponentDict effectsDict;
+
     [SerializeField]
     private EffectTriggerTable triggerTable;
 
@@ -13,23 +14,10 @@ public class EffectCollection : MonoBehaviour
     public void UpdateEffect()
     {
         if (this.triggerTable == null) return;
-        foreach (EffectTrigger trigger in this.triggerTable.effectTriggers)
+        foreach (EffectType type in this.triggerTable.effectsDict.Keys)
         {
-            DamageDealEffectComponent component = GetEffect(trigger.type);
-            component.gameObject.SetActive(trigger.active);
+            this.effectsDict[type].gameObject.SetActive(this.triggerTable.effectsDict[type]);
         }
-    }
-
-    public DamageDealEffectComponent GetEffect(EffectType type)
-    {
-        foreach (EffectItem item in this.effects)
-        {
-            if (item.type == type)
-            {
-                return item.effect;
-            }
-        }
-        return null;
     }
 }
 

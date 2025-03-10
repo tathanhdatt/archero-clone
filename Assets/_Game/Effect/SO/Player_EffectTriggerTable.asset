@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1427880056a4e91a41beb602efb3b32, type: 3}
   m_Name: Player_EffectTriggerTable
   m_EditorClassIdentifier: 
-  effectTriggers:
-  - type: 0
-    active: 1
-  - type: 1
-    active: 1
+  effectsDict:
+    m_keys: 0000000001000000
+    m_values: 0001

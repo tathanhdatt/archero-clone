@@ -1,36 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gun Decorators Trigger Table")]
 public class GunDecoratorsTriggerTable : ScriptableObject
 {
-    public List<GunDecoratorTrigger> triggers;
-    public event Action<GunDecoratorTrigger> OnTriggerChanged;
+    public TypeGunDecoratorAndBoolDict triggersDict;
+    public event Action<GunDecoratorType, bool> OnTriggerActiveChanged;
 
     public void UpdateTrigger(GunDecoratorType type, bool active)
     {
-        foreach (GunDecoratorTrigger trigger in this.triggers)
-        {
-            if (trigger.type != type) continue;
-            trigger.active = active;
-            OnTriggerChanged?.Invoke(trigger);
-            break;
-        }
+        if (!this.triggersDict.ContainsKey(type)) return;
+        this.triggersDict[type] = active;
+        OnTriggerActiveChanged?.Invoke(type, active);
     }
 
     private void OnEnable()
     {
-        if (this.triggers.Count == 0) return;
-        this.triggers.ForEach(trigger => trigger.active = false);
-        this.triggers[0].active = true;
+        if (this.triggersDict.Count == 0) return;
+        for (int i = 0; i < this.triggersDict.Count; i++)
+        {
+            this.triggersDict[this.triggersDict.Keys.ElementAt(i)] = false;
+        }
+        this.triggersDict[this.triggersDict.Keys.First()] = true;
     }
-}
-
-[Serializable]
-public class GunDecoratorTrigger
-{
-    public GunDecoratorType type;
-    public bool active;
-    public GunDecoratorType[] conflictTypes;
 }
