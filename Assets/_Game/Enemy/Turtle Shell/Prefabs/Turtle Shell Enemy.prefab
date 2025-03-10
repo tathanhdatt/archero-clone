@@ -337,7 +337,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: {fileID: 11400000, guid: e33eefa6100d25d4ab713b61044b9c4b, type: 2}
   currentHealth: {fileID: 0}
-  element: {fileID: 11400000, guid: 55ab2f772bd6b4a45b3d770cab66160a, type: 2}
+  tags:
+  - {fileID: 11400000, guid: 054143306554b674ea4964869f138a05, type: 2}
+  - {fileID: 11400000, guid: 5476412274e329646b679d7223a1aad9, type: 2}
   onTakenDamage:
     m_PersistentCalls:
       m_Calls:
@@ -895,6 +897,104 @@ MonoBehaviour:
   boolVarName: Get Hit Bool
   enterValue: 1
   exitValue: 0
+--- !u!1 &4616674795041027977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4760247639827561730}
+  - component: {fileID: 2541826817226645211}
+  m_Layer: 0
+  m_Name: Set "True" trigger for "Turtle Shell Enemy"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4760247639827561730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616674795041027977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 42652314133286858}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2541826817226645211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616674795041027977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db29ee45748147e8bf9694251bbc9352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 3272090800799468069}
+  col: {fileID: 695880802127644194}
+  trigger: 1
+  reverseOnExit: 0
+  originalTrigger: 0
+--- !u!1 &4617964126576235152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2236672663495745857}
+  - component: {fileID: 1186330839467718480}
+  m_Layer: 0
+  m_Name: Set "Turtle Shell Enemy" to "True" kinematic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2236672663495745857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617964126576235152}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 42652314133286858}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1186330839467718480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617964126576235152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4775371670d845da8285e444fe9669ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 3272090800799468069}
+  rb: {fileID: 1944843724183664582}
+  isKinematic: 1
+  reverseOnExit: 0
+  originalIsKinematic: 0
 --- !u!1 &4687043678868152333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,6 +2119,8 @@ Transform:
   m_Children:
   - {fileID: 2600762895886330345}
   - {fileID: 5732730020649010791}
+  - {fileID: 4760247639827561730}
+  - {fileID: 2236672663495745857}
   m_Father: {fileID: 2578563861511947110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4360099579718586575
@@ -2050,6 +2152,8 @@ MonoBehaviour:
   stateDecorators:
   - {fileID: 3050631569292141417}
   - {fileID: 597879443207329023}
+  - {fileID: 2541826817226645211}
+  - {fileID: 1186330839467718480}
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -2189,7 +2293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: {fileID: 11400000, guid: f0739ecb313caee4e9a4de75561410b9, type: 2}
-  damageableElements: {fileID: 11400000, guid: c924cd22cd8898c449ec12b63f1f7725, type: 2}
+  damageableTag: {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
   onBeforeDamage:
     m_PersistentCalls:
       m_Calls: []

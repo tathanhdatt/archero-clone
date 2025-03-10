@@ -304,7 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: {fileID: 11400000, guid: da05727a048a42941ac5b70d6a884cea, type: 2}
   currentHealth: {fileID: 0}
-  element: {fileID: 11400000, guid: 55ab2f772bd6b4a45b3d770cab66160a, type: 2}
+  tags:
+  - {fileID: 11400000, guid: 054143306554b674ea4964869f138a05, type: 2}
   onTakenDamage:
     m_PersistentCalls:
       m_Calls:
@@ -1538,6 +1539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 5074270355706491833}
   speed: 1
+  rb: {fileID: 0}
 --- !u!1 &4473400903859792553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +1954,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   incomingDamage: {fileID: 11400000, guid: 8c9a5263ebc10824ab79a0532768953b, type: 2}
   damageableElements: {fileID: 11400000, guid: c924cd22cd8898c449ec12b63f1f7725, type: 2}
+  damageableTag: {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
 --- !u!1 &5224393823590057750
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,6 +2771,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   incomingDamage: {fileID: 11400000, guid: 9e896257de6b28f499fbae48dbe30ea9, type: 2}
   damageableElements: {fileID: 11400000, guid: c924cd22cd8898c449ec12b63f1f7725, type: 2}
+  damageableTag: {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
 --- !u!1 &8005002987670138058
 GameObject:
   m_ObjectHideFlags: 0

@@ -600,6 +600,8 @@ Transform:
   m_Children:
   - {fileID: 5991655574620657094}
   - {fileID: 5391186637729547712}
+  - {fileID: 3820813088871109315}
+  - {fileID: 6890293241163467143}
   m_Father: {fileID: 1174701044671956389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6125424137051001018
@@ -631,6 +633,8 @@ MonoBehaviour:
   stateDecorators:
   - {fileID: 7341519225304922220}
   - {fileID: 8989826919636275305}
+  - {fileID: 3175855026911111337}
+  - {fileID: 4806149863692812178}
   onEnter:
     m_PersistentCalls:
       m_Calls:
@@ -779,6 +783,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   incomingDamage: {fileID: 11400000, guid: 2d85d7ee063b76a4081e078c392d87e1, type: 2}
   damageableElements: {fileID: 11400000, guid: c924cd22cd8898c449ec12b63f1f7725, type: 2}
+  damageableTag: {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
 --- !u!1 &3010398242128269728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,7 +1483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: {fileID: 11400000, guid: b51dc72da1c6c1142a7af6942e381f8d, type: 2}
   currentHealth: {fileID: 0}
-  element: {fileID: 11400000, guid: 55ab2f772bd6b4a45b3d770cab66160a, type: 2}
+  tags:
+  - {fileID: 11400000, guid: 054143306554b674ea4964869f138a05, type: 2}
+  - {fileID: 11400000, guid: 5476412274e329646b679d7223a1aad9, type: 2}
   onTakenDamage:
     m_PersistentCalls:
       m_Calls:
@@ -2139,6 +2146,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEntered: 0
   isMet: 0
+--- !u!1 &7039623164510898544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3820813088871109315}
+  - component: {fileID: 3175855026911111337}
+  m_Layer: 0
+  m_Name: Set "Red Slime Enemy" to "True" kinematic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3820813088871109315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039623164510898544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7528464586728814251}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3175855026911111337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039623164510898544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4775371670d845da8285e444fe9669ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 3229143834386890273}
+  rb: {fileID: 352719028306959243}
+  isKinematic: 1
+  reverseOnExit: 0
+  originalIsKinematic: 0
 --- !u!1 &8240899447841785802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2419,6 +2475,55 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &8552098317948854763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6890293241163467143}
+  - component: {fileID: 4806149863692812178}
+  m_Layer: 0
+  m_Name: Set "True" trigger for "Red Slime Enemy"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6890293241163467143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552098317948854763}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7528464586728814251}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4806149863692812178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552098317948854763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db29ee45748147e8bf9694251bbc9352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 3229143834386890273}
+  col: {fileID: 2462765447855426458}
+  trigger: 1
+  reverseOnExit: 0
+  originalTrigger: 0
 --- !u!1 &8597435621309611510
 GameObject:
   m_ObjectHideFlags: 0

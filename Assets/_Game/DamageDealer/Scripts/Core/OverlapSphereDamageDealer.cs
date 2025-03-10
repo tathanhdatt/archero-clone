@@ -14,6 +14,9 @@ public class OverlapSphereDamageDealer : DamageDealer
 
     [SerializeField, Required]
     private DamageableElements damageableElements;
+    
+    [SerializeField, Required]
+    private Tag damageableTag;
 
     private readonly Collider[] colliders = new Collider[10];
     private Collider cachedCollider;
@@ -32,7 +35,7 @@ public class OverlapSphereDamageDealer : DamageDealer
             if (this.colliders[i] == this.cachedCollider) break;
             DamageReceiver receiver = this.colliders[i].GetComponent<DamageReceiver>();
             if (receiver == null) continue;
-            bool canTakeDamage = this.damageableElements.CanDamageType(receiver.Element);
+            bool canTakeDamage = receiver.ContainsTag(this.damageableTag);
             if (!canTakeDamage) continue;
             this.cachedDamageReceiver = receiver;
             break;

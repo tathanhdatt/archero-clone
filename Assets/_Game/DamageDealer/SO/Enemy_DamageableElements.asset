@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Enemy_DamageableElements
   m_EditorClassIdentifier: 
   exclude: 1
+  damageTag:
+  - {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
   excludeElements:
   - {fileID: 11400000, guid: 55ab2f772bd6b4a45b3d770cab66160a, type: 2}
   includeElements: []
