@@ -23,7 +23,7 @@
 //#define LOG_ALL_MESSAGES
 //#define LOG_ADD_LISTENER
 //#define LOG_BROADCAST_MESSAGE
-#define REQUIRE_LISTENER
+// #define REQUIRE_LISTENER
  
 using System;
 using System.Collections.Generic;
@@ -132,11 +132,12 @@ static internal class Messenger {
             eventTable.Remove(eventType);
         }
     }
- 
-    static public void OnBroadcasting(string eventType) {
+
+    private static void OnBroadcasting(string eventType) {
 #if REQUIRE_LISTENER
         if (!eventTable.ContainsKey(eventType)) {
-            throw new BroadcastException(string.Format("Broadcasting message \"{0}\" but no listener found. Try marking the message with Messenger.MarkAsPermanent.", eventType));
+            throw new BroadcastException(
+	            $"Broadcasting message \"{eventType}\" but no listener found. Try marking the message with Messenger.MarkAsPermanent.");
         }
 #endif
     }
