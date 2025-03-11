@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ecd9609b62749fb96b831ea2c878feb, type: 3}
-  m_Name: Cfg_Player_MovementMaxSpeed
+  m_Name: Var_Player_Dynamic_Effect_LightingRadius
   m_EditorClassIdentifier: 
-  initValue: 10
-  value: 10
+  initValue: 3
+  value: 0

@@ -8,6 +8,9 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     [SerializeField, Required]
+    private VisualNode initPlayerAttributesNode;
+
+    [SerializeField, Required]
     private VisualNode startingNode;
 
     [SerializeField]
@@ -19,6 +22,8 @@ public class Level : MonoBehaviour
     public async UniTask Initialize()
     {
         await UniTask.CompletedTask;
+        await this.initPlayerAttributesNode.Initialize();
+        await this.initPlayerAttributesNode.Run(destroyCancellationToken);
         await this.startingNode.Initialize();
         foreach (InitializableMono mono in this.initializables)
         {

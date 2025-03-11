@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ecd9609b62749fb96b831ea2c878feb, type: 3}
-  m_Name: Var_Player_Runtime_HP
+  m_Name: Var_Player_Dynamic_Effect_CritRate
   m_EditorClassIdentifier: 
-  description: 
-  initValue: 0
-  value: 100
+  description: Crit damage rate when player hit an enemy
+  initValue: 0.1
+  value: 0.1
   logValueChanged: 0
