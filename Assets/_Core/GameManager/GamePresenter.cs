@@ -24,6 +24,15 @@ public class GamePresenter : MonoBehaviour
         
         GearViewPresenter gearViewPresenter = new GearViewPresenter(this, transform);
         AddPresenter(gearViewPresenter);
+        
+        HomeViewPresenter homeViewPresenter = new HomeViewPresenter(this, transform);
+        AddPresenter(homeViewPresenter);
+        
+        NavigatorViewPresenter navigatorView = new NavigatorViewPresenter(this, transform);
+        AddPresenter(navigatorView);
+        
+        WinViewPresenter winViewPresenter = new WinViewPresenter(this, transform);
+        AddPresenter(winViewPresenter);
     }
 
     public async UniTask InitialViewPresenters()

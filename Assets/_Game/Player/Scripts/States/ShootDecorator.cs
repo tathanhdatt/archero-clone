@@ -25,8 +25,7 @@ public class ShootDecorator : StateDecorator
 
     protected override async UniTask OnStateEnter()
     {
-        await UniTask.CompletedTask;
-        this.gun.Initialize();
+        await this.gun.Initialize();
         if (this.resetOnEnter)
         {
             this.remainReloadTime = 0;

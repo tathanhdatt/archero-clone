@@ -1,9 +1,10 @@
-﻿using Dt.Attribute;
+﻿using Cysharp.Threading.Tasks;
+using Dt.Attribute;
 using Dt.Extension;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : InitializableMono
 {
     [SerializeField, Required]
     private Joystick joystick;
@@ -38,11 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
     public UnityEvent onStop;
 
-    private void Awake()
+    public override async UniTask Initialize()
     {
         this.isMoving = false;
         this.isStopped = true;
+        await UniTask.CompletedTask;
     }
+
 
     private void Update()
     {
@@ -100,5 +103,10 @@ public class PlayerMovement : MonoBehaviour
     {
         float speed = this.joystick.Vertical * this.maxSpeed.Value;
         this.rb.linearVelocity = this.rb.linearVelocity.ReplaceZ(speed);
+    }
+    
+    public override async UniTask Terminate()
+    {
+        await UniTask.CompletedTask;
     }
 }

@@ -15,6 +15,9 @@ public class GearView : BaseView
     [SerializeField, Required]
     private Transform content;
 
+    [SerializeField, Required]
+    private List<GameObject> models;
+
     [SerializeField]
     private TypeAndUIEquipmentDict typeAndUIEquipmentDict;
 
@@ -57,9 +60,16 @@ public class GearView : BaseView
 
     public override async UniTask Show()
     {
+        ActivateModels();
         ActivateEquipmentUI();
         await base.Show();
     }
+
+    private void ActivateModels()
+    {
+        this.models.ForEach(go => go.SetActive(true));
+    }
+
 
     private void ActivateEquipmentUI()
     {
@@ -75,6 +85,7 @@ public class GearView : BaseView
     {
         await base.Hide();
         DeactivateEquipmentUI();
+        DeactivateModels();
     }
 
     private void DeactivateEquipmentUI()
@@ -84,6 +95,11 @@ public class GearView : BaseView
             ui.OnClick -= OnClickHandler;
             ui.gameObject.SetActive(false);
         }
+    }
+
+    private void DeactivateModels()
+    {
+        this.models.ForEach(go => go.SetActive(false));
     }
 
     private void OnClickHandler(EquipmentData data)

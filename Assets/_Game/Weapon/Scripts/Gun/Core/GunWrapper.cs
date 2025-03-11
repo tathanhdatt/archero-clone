@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using Dt.Attribute;
 using UnityEngine;
 
@@ -10,9 +11,6 @@ public class GunWrapper : Gun
     [SerializeField]
     private GunDecorator[] decorators;
     
-    [SerializeField]
-    private bool autoInit;
-
     [SerializeField, ReadOnly]
     private Gun wrapper;
 
@@ -23,19 +21,12 @@ public class GunWrapper : Gun
 
     public override event Action OnShot;
 
-    private void Start()
+    public override async UniTask Initialize()
     {
-        if (this.autoInit)
-        {
-            Initialize();
-        }
-    }
-
-    public void Initialize()
-    {
+        await UniTask.CompletedTask;
         if (this.isInitialized) return;
         this.isInitialized = true;
-        Decorate();
+        await Decorate();
     }
 
     [Button]
@@ -44,7 +35,7 @@ public class GunWrapper : Gun
         this.wrapper?.Shoot();
     }
 
-    private void Decorate()
+    private async UniTask Decorate()
     {
         if (this.decorators.Length == 0)
         {
@@ -54,18 +45,23 @@ public class GunWrapper : Gun
 
         if (this.decorators.Length == 1)
         {
-            this.decorators.First().Initialize(this.coreGun);
+            await this.decorators.First().Initialize(this.coreGun);
             this.wrapper = this.decorators.First();
             return;
         }
 
         for (int i = 0; i < this.decorators.Length - 1; i++)
         {
-            this.decorators[i].Initialize(this.decorators[i + 1]);
+            await this.decorators[i].Initialize(this.decorators[i + 1]);
         }
 
-        this.decorators.Last().Initialize(this.coreGun);
+        await this.decorators.Last().Initialize(this.coreGun);
         this.wrapper = this.decorators.First();
+    }
+
+    public override async UniTask Terminate()
+    {
+        await UniTask.CompletedTask;
     }
 
     [Button]

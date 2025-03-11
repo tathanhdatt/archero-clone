@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Dt.Attribute;
 using UnityEngine;
 
@@ -18,9 +19,9 @@ public class PlayerDamageReceiver : DamageReceiver
 
     public override float MaxHealth => this.maxHealth.Value;
 
-    public override void Initialize()
+    public override async UniTask Initialize()
     {
-        base.Initialize();
+        await base.Initialize();
         this.currentHealth.OnValueChanged += CurrentHealthOnOnValueChanged;
     }
 
@@ -32,8 +33,9 @@ public class PlayerDamageReceiver : DamageReceiver
         }
     }
 
-    public override void Terminate()
+    public override async UniTask Terminate()
     {
         this.currentHealth.OnValueChanged -= CurrentHealthOnOnValueChanged;
+        await UniTask.CompletedTask;
     }
 }

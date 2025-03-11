@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 public abstract class InitializableMono : MonoBehaviour
 {
-    public abstract void Initialize();
-    public abstract void Terminate();
+    public abstract UniTask Initialize();
+    public abstract UniTask Terminate();
 }

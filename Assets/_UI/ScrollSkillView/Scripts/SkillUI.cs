@@ -34,6 +34,7 @@ public class SkillUI : MonoBehaviour
 
     public void Init(AbilityUpgradeData abilityUpgradeData)
     {
+        this.upgradeData = abilityUpgradeData;
         this.icon.sprite = abilityUpgradeData.icon;
         int currentLevelSkill = abilityUpgradeData.currentLevel;
         string content = abilityUpgradeData.updateComponents[currentLevelSkill].Description;

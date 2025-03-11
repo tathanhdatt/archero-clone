@@ -36,6 +36,7 @@ public abstract class BaseViewPresenter
 
     public async UniTask Show()
     {
+        if (IsShowing) return;
         IsShowing = true;
         foreach (BaseView view in this.views)
         {

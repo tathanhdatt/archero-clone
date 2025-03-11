@@ -1,4 +1,5 @@
-﻿using Dt.Attribute;
+﻿using Cysharp.Threading.Tasks;
+using Dt.Attribute;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,10 +18,11 @@ public class HealthPointTracker : InitializableMono
     [SerializeField, Required]
     private TMP_Text text;
 
-    public override void Initialize()
+    public override async UniTask Initialize()
     {
         this.maxHealth.OnValueChanged += OnValueChangedHandler;
         this.currentHealth.OnValueChanged += OnValueChangedHandler;
+        await UniTask.CompletedTask;
     }
 
     private void OnValueChangedHandler()
@@ -30,9 +32,10 @@ public class HealthPointTracker : InitializableMono
         this.text.SetText(((int)this.currentHealth.Value).ToString());
     }
 
-    public override void Terminate()
+    public override async UniTask Terminate()
     {
         this.maxHealth.OnValueChanged -= OnValueChangedHandler;
         this.currentHealth.OnValueChanged -= OnValueChangedHandler;
+        await UniTask.CompletedTask;
     }
 }

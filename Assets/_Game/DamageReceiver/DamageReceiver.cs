@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Dt.Attribute;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,9 +15,10 @@ public abstract class DamageReceiver : InitializableMono
     public UnityEvent<DamageType> onTakenDamage;
     public UnityEvent onDeath;
 
-    public override void Initialize()
+    public override async UniTask Initialize()
     {
         CurrentHealth = MaxHealth;
+        await UniTask.CompletedTask;
     }
 
     public void TakeDamage(float incomingDamage, DamageType type = DamageType.Normal)
@@ -37,7 +39,8 @@ public abstract class DamageReceiver : InitializableMono
         return this.tags.Contains(tag);
     }
 
-    public override void Terminate()
+    public override async UniTask Terminate()
     {
+        await UniTask.CompletedTask;
     }
 }

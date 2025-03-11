@@ -3,6 +3,7 @@ using Core.Service;
 using Cysharp.Threading.Tasks;
 using Dt.Attribute;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Core.Game
 {
@@ -14,10 +15,12 @@ namespace Core.Game
         [Line]
         [SerializeField, Required]
         private DialogManager dialogManager;
-        
+
         [Line]
         [SerializeField]
         private AbilityUpgradeData[] skillUpdaterData;
+
+        private Level currentLevel;
 
         public AbilityUpgradeData[] SkillUpdaterData => this.skillUpdaterData;
         public IAudioService AudioService { get; private set; }
@@ -59,7 +62,27 @@ namespace Core.Game
         {
             await UniTask.CompletedTask;
             Messenger.AddListener(Message.CombatLevelUp, CombatLevelUpHandler);
-            // this.presenter.GetViewPresenter<GearViewPresenter>().Show();
+            Messenger.AddListener<int>(Message.Play, PlayHandler);
+            Messenger.AddListener(Message.LevelWin, LevelWinHandler);
+            await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Show();
+        }
+
+        private async void LevelWinHandler()
+        {
+            Destroy(this.currentLevel?.gameObject);
+            await this.presenter.GetViewPresenter<WinViewPresenter>().Show();
+        }
+
+        private async void PlayHandler(int levelId)
+        {
+            Destroy(this.currentLevel?.gameObject);
+            GameObject newLevel =
+                await Addressables.LoadAssetAsync<GameObject>($"Level_{levelId:D3}");
+            this.currentLevel = Instantiate(newLevel).GetComponent<Level>();
+            await this.currentLevel.Initialize();
+            await this.presenter.GetViewPresenter<HomeViewPresenter>().Hide();
+            await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Hide();
+            this.currentLevel.Play();
         }
 
         private async void CombatLevelUpHandler()
@@ -86,7 +109,6 @@ namespace Core.Game
 
         private void SaveLevels()
         {
-
         }
     }
 }

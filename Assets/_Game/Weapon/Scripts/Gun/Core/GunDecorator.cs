@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 
 public abstract class GunDecorator : Gun
 {
@@ -6,10 +7,16 @@ public abstract class GunDecorator : Gun
     public override Bullet BulletPrefab => this.Gun.BulletPrefab;
     public override event Action OnShot;
 
-    public void Initialize(Gun gun)
+    public override async UniTask Initialize()
+    {
+        await UniTask.CompletedTask;
+    }
+    
+    public async UniTask Initialize(Gun gun)
     {
         this.Gun = gun;
         this.Gun.OnShot += OnShotHandler;
+        await UniTask.CompletedTask;
     }
 
     public override void Shoot()
@@ -29,5 +36,10 @@ public abstract class GunDecorator : Gun
 
     protected virtual void OnShooting()
     {
+    }
+
+    public override async UniTask Terminate()
+    {
+        await UniTask.CompletedTask;
     }
 }
