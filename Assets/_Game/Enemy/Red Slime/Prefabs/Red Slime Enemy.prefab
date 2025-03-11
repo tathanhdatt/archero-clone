@@ -782,7 +782,6 @@ MonoBehaviour:
   radius: 1
   offset: {x: 0, y: 0, z: 0}
   incomingDamage: {fileID: 11400000, guid: 2d85d7ee063b76a4081e078c392d87e1, type: 2}
-  damageableElements: {fileID: 11400000, guid: c924cd22cd8898c449ec12b63f1f7725, type: 2}
   damageableTag: {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
 --- !u!1 &3010398242128269728
 GameObject:
@@ -1703,7 +1702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initializables:
-  - {fileID: 0}
+  - {fileID: 3255050219033729123}
 --- !u!1 &5040656249377606382
 GameObject:
   m_ObjectHideFlags: 0

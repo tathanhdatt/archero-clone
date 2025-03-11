@@ -59,7 +59,7 @@ namespace Core.Game
         {
             await UniTask.CompletedTask;
             Messenger.AddListener(Message.CombatLevelUp, CombatLevelUpHandler);
-            this.presenter.GetViewPresenter<GearViewPresenter>().Show();
+            // this.presenter.GetViewPresenter<GearViewPresenter>().Show();
         }
 
         private async void CombatLevelUpHandler()
