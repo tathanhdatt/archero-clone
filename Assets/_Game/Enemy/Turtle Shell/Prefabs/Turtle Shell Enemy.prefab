@@ -298,9 +298,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1640524070589847962}
-  - component: {fileID: 14735610617619631}
   - component: {fileID: 28743461611808537}
   - component: {fileID: 587077922055453173}
+  - component: {fileID: 5457223625329722204}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: Untagged
@@ -323,65 +323,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7775633085056638961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &14735610617619631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588576021031519256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b41e305d334464395cfa5b890eed1d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: {fileID: 11400000, guid: e33eefa6100d25d4ab713b61044b9c4b, type: 2}
-  currentHealth: {fileID: 0}
-  tags:
-  - {fileID: 11400000, guid: 054143306554b674ea4964869f138a05, type: 2}
-  - {fileID: 11400000, guid: 5476412274e329646b679d7223a1aad9, type: 2}
-  onTakenDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3643295185351837562}
-        m_TargetAssemblyTypeName: WaitEventRaised, Assembly-CSharp
-        m_MethodName: MetEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3319788564085966876}
-        m_TargetAssemblyTypeName: WaitEventRaised, Assembly-CSharp
-        m_MethodName: MetEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 754353786620862451}
-        m_TargetAssemblyTypeName: WaitEventRaised, Assembly-CSharp
-        m_MethodName: MetEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!65 &28743461611808537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -430,6 +371,65 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5457223625329722204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588576021031519256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f53d824eeb45d69f1e73b4b39e7957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 054143306554b674ea4964869f138a05, type: 2}
+  - {fileID: 11400000, guid: 5476412274e329646b679d7223a1aad9, type: 2}
+  onTakenDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3319788564085966876}
+        m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
+        m_MethodName: MetEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3643295185351837562}
+        m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
+        m_MethodName: MetEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 754353786620862451}
+        m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
+        m_MethodName: MetEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHealth: {fileID: 11400000, guid: e33eefa6100d25d4ab713b61044b9c4b, type: 2}
+  currentHealth: 0
 --- !u!1 &1921251293178933589
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initializables:
-  - {fileID: 14735610617619631}
+  - {fileID: 0}
 --- !u!1 &3975113571549046358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,7 +2997,7 @@ PrefabInstance:
     - target: {fileID: 6742884108518525236, guid: fd23f9478f9da14418555bae05062a33, type: 3}
       propertyPath: damageReceiver
       value: 
-      objectReference: {fileID: 14735610617619631}
+      objectReference: {fileID: 5457223625329722204}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

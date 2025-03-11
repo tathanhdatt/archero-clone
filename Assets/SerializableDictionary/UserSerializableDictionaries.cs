@@ -18,3 +18,8 @@ public class TypeEffectAndBoolDict : SerializableDictionary<EffectType, bool>
 public class TypeEffectComponentDict : SerializableDictionary<EffectType, DamageDealEffectComponent>
 {
 }
+
+[Serializable]
+public class TypeAndUIEquipmentDict : SerializableDictionary<EquipmentType, EquipmentUI>
+{
+}

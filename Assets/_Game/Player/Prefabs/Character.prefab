@@ -813,7 +813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initializables:
   - {fileID: 4835228552681159528}
-  - {fileID: 322555603936685294}
+  - {fileID: 0}
 --- !u!1 &2460796404299504926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,8 +1353,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8293733682287737504}
   - component: {fileID: 2937039225885870106}
-  - component: {fileID: 322555603936685294}
   - component: {fileID: 17733546604005939}
+  - component: {fileID: 6690799956759097720}
   m_Layer: 0
   m_Name: Damage Receiver
   m_TagString: Untagged
@@ -1404,28 +1404,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &322555603936685294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5118281706667943952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b41e305d334464395cfa5b890eed1d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: {fileID: 11400000, guid: bf52ba2ff31d0b6419af231456e23424, type: 2}
-  currentHealth: {fileID: 11400000, guid: f6cd754f186d45449b11fdda02fa241e, type: 2}
-  tags:
-  - {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
-  onTakenDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!136 &17733546604005939
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1449,6 +1427,28 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6690799956759097720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118281706667943952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b929aa4a5e1f4426a4982f308b08f7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
+  onTakenDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  maxHealth: {fileID: 11400000, guid: bf52ba2ff31d0b6419af231456e23424, type: 2}
+  currentHealth: {fileID: 11400000, guid: f6cd754f186d45449b11fdda02fa241e, type: 2}
 --- !u!1 &5329451924737422955
 GameObject:
   m_ObjectHideFlags: 0

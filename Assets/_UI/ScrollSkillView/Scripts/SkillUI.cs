@@ -13,7 +13,7 @@ public class SkillUI : MonoBehaviour
     private TMP_Text description;
 
     [SerializeField, ReadOnly]
-    private SkillUpdaterData updaterData;
+    private AbilityUpgradeData upgradeData;
 
     [SerializeField, Required]
     private Button button;
@@ -22,21 +22,21 @@ public class SkillUI : MonoBehaviour
 
     public void UpdateSkill()
     {
-        if (this.updaterData != null)
+        if (this.upgradeData != null)
         {
-            this.updaterData.updateComponents[this.updaterData.currentLevel].Update();
-            this.updaterData.currentLevel++;
+            this.upgradeData.updateComponents[this.upgradeData.currentLevel].Upgrade();
+            this.upgradeData.currentLevel++;
         }
 
         OnSkillUpdated?.Invoke();
     }
 
 
-    public void Init(SkillUpdaterData skillUpdaterData)
+    public void Init(AbilityUpgradeData abilityUpgradeData)
     {
-        this.icon.sprite = skillUpdaterData.icon;
-        int currentLevelSkill = skillUpdaterData.currentLevel;
-        string content = skillUpdaterData.updateComponents[currentLevelSkill].Description;
+        this.icon.sprite = abilityUpgradeData.icon;
+        int currentLevelSkill = abilityUpgradeData.currentLevel;
+        string content = abilityUpgradeData.updateComponents[currentLevelSkill].Description;
         this.description.SetText(content);
     }
 }

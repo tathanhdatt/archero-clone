@@ -3,49 +3,26 @@ using Dt.Attribute;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DamageReceiver : InitializableMono
+public abstract class DamageReceiver : InitializableMono
 {
-    [SerializeField, Required]
-    private FloatVariable maxHealth;
-
-    [SerializeField]
-    private FloatVariable currentHealth;
-
     [SerializeField, Required]
     private List<Tag> tags;
 
-    public float CurrentHealth => this.currentHealth.Value;
-    public float MaxHealth => this.maxHealth.Value;
+    public abstract float CurrentHealth { get; protected set; }
+    public abstract float MaxHealth { get; }
 
     public UnityEvent<DamageType> onTakenDamage;
     public UnityEvent onDeath;
 
     public override void Initialize()
     {
-        if (this.currentHealth == null)
-        {
-            this.currentHealth = ScriptableObject.CreateInstance<FloatVariable>();
-        }
-        else
-        {
-            this.currentHealth.OnValueChanged += CurrentHealthOnOnValueChanged;
-        }
-
-        this.currentHealth.Value = this.maxHealth.Value;
-    }
-
-    private void CurrentHealthOnOnValueChanged()
-    {
-        if (this.currentHealth.Value > this.maxHealth.Value)
-        {
-            this.currentHealth.Value = this.maxHealth.Value;
-        }
+        CurrentHealth = MaxHealth;
     }
 
     public void TakeDamage(float incomingDamage, DamageType type = DamageType.Normal)
     {
-        this.currentHealth.Value -= incomingDamage;
-        if (this.currentHealth.Value <= 0)
+        CurrentHealth -= incomingDamage;
+        if (CurrentHealth <= 0)
         {
             this.onDeath?.Invoke();
         }
@@ -62,9 +39,5 @@ public class DamageReceiver : InitializableMono
 
     public override void Terminate()
     {
-        if (this.currentHealth != null)
-        {
-            this.currentHealth.OnValueChanged -= CurrentHealthOnOnValueChanged;
-        }
     }
 }
