@@ -21,6 +21,9 @@ public class GamePresenter : MonoBehaviour
         ScrollSkillViewPresenter scrollSkillViewPresenter =
             new ScrollSkillViewPresenter(this, transform, this.manager.SkillUpdaterData);
         AddPresenter(scrollSkillViewPresenter);
+        
+        GearViewPresenter gearViewPresenter = new GearViewPresenter(this, transform);
+        AddPresenter(gearViewPresenter);
     }
 
     public async UniTask InitialViewPresenters()

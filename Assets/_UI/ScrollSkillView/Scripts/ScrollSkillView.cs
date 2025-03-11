@@ -114,7 +114,7 @@ public class ScrollSkillView : BaseView
         await this.fadeOutTweener.AsyncWaitForCompletion();
     }
 
-    public void SetSkillData(SkillUpdaterData[] data)
+    public void SetSkillData(AbilityUpgradeData[] data)
     {
         for (int i = 0; i < this.skillUIs.Count; i++)
         {

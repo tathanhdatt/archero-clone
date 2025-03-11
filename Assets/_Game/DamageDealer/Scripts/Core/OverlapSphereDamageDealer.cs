@@ -13,9 +13,6 @@ public class OverlapSphereDamageDealer : DamageDealer
     private FloatVariable incomingDamage;
 
     [SerializeField, Required]
-    private DamageableElements damageableElements;
-    
-    [SerializeField, Required]
     private Tag damageableTag;
 
     private readonly Collider[] colliders = new Collider[10];

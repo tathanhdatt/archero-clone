@@ -5,10 +5,10 @@ using UnityEngine;
 public class ScrollSkillViewPresenter : BaseViewPresenter
 {
     private ScrollSkillView scrollSkillView;
-    private readonly SkillUpdaterData[] skillUpdaterData;
+    private readonly AbilityUpgradeData[] skillUpdaterData;
 
     public ScrollSkillViewPresenter(GamePresenter presenter,
-        Transform transform, SkillUpdaterData[] skillUpdaterData) : base(presenter, transform)
+        Transform transform, AbilityUpgradeData[] skillUpdaterData) : base(presenter, transform)
     {
         this.skillUpdaterData = skillUpdaterData;
     }

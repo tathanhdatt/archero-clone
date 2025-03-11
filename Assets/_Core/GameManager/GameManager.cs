@@ -17,9 +17,9 @@ namespace Core.Game
         
         [Line]
         [SerializeField]
-        private SkillUpdaterData[] skillUpdaterData;
+        private AbilityUpgradeData[] skillUpdaterData;
 
-        public SkillUpdaterData[] SkillUpdaterData => this.skillUpdaterData;
+        public AbilityUpgradeData[] SkillUpdaterData => this.skillUpdaterData;
         public IAudioService AudioService { get; private set; }
         public IPoolService PoolService { get; private set; }
 
@@ -59,6 +59,7 @@ namespace Core.Game
         {
             await UniTask.CompletedTask;
             Messenger.AddListener(Message.CombatLevelUp, CombatLevelUpHandler);
+            this.presenter.GetViewPresenter<GearViewPresenter>().Show();
         }
 
         private async void CombatLevelUpHandler()
