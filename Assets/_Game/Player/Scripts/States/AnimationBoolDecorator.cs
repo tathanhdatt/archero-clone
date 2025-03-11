@@ -41,12 +41,10 @@ public class AnimationBoolDecorator : StateDecorator
         gameObject.name =
             $"Bool [{this.boolVarName}]: \"{this.enterValue}\" <-> \"{this.exitValue}\"";
     }
-#if UNITY_EDITOR
     private string[] GetVarNames()
     {
         return this.animator.parameters
             .Where(parameter => parameter.type == AnimatorControllerParameterType.Bool)
             .Select(parameter => parameter.name).ToArray();
     }
-#endif
 }

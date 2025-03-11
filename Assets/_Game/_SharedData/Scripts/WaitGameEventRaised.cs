@@ -2,7 +2,6 @@
 using Cysharp.Threading.Tasks;
 using Dt.Attribute;
 using Dt.BehaviourTree;
-using Dt.BehaviourTree.Editor;
 using Dt.BehaviourTree.Leaf;
 using UnityEditor;
 using UnityEngine;

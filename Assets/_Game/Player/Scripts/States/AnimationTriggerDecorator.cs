@@ -34,11 +34,9 @@ public class AnimationTriggerDecorator : StateDecorator
         gameObject.name = $"Trigger: \"{this.triggerVar}\"";
     }
 
-#if UNITY_EDITOR
     private string[] GetTriggerNames()
     {
         return this.animator.parameters.Where(parameter => parameter.type == 
             AnimatorControllerParameterType.Trigger).Select(parameter => parameter.name).ToArray();
     }
-#endif
 }
