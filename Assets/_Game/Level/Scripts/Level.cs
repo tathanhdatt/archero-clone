@@ -12,7 +12,7 @@ public class Level : MonoBehaviour
 
     [SerializeField]
     private List<InitializableMono> initializables;
-    
+
     [SerializeField]
     private StateMachine stateMachine;
 
@@ -24,6 +24,7 @@ public class Level : MonoBehaviour
         {
             await mono.Initialize();
         }
+
         await this.stateMachine.Initialize();
     }
 
@@ -31,5 +32,16 @@ public class Level : MonoBehaviour
     {
         await UniTask.CompletedTask;
         await this.startingNode.Run(destroyCancellationToken);
+    }
+
+    public async UniTask Terminate()
+    {
+        await UniTask.CompletedTask;
+        foreach (InitializableMono mono in this.initializables)
+        {
+            await mono.Terminate();
+        }
+
+        await this.stateMachine.Terminate();
     }
 }

@@ -952,7 +952,10 @@ MonoBehaviour:
   inventoryData: {fileID: 11400000, guid: 4ed73ca2d8e3ae947ae69d74857f444a, type: 2}
   equipmentUIPrefab: {fileID: 4990598922897619327, guid: 1ba90668a237af8438be621df2bc7565, type: 3}
   content: {fileID: 1380742409}
-  models: []
+  models:
+  - {fileID: 50149323}
+  - {fileID: 1451695526}
+  - {fileID: 1034433983}
   typeAndUIEquipmentDict:
     m_keys: 0000000001000000
     m_values:
@@ -4077,6 +4080,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034108595}
   m_CullTransparentMesh: 1
+--- !u!1 &1034433983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4566467024315601081, guid: d49287436c5fa424593fe4a0c169fa43, type: 3}
+  m_PrefabInstance: {fileID: 1729476116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1118750705
 GameObject:
   m_ObjectHideFlags: 0

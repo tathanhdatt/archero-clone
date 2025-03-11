@@ -67,15 +67,23 @@ namespace Core.Game
             await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Show();
         }
 
+        private async UniTask ClearLevel()
+        {
+            if (this.currentLevel != null)
+            {
+                await this.currentLevel.Terminate();
+                Destroy(this.currentLevel.gameObject);
+            }
+        }
         private async void LevelWinHandler()
         {
-            Destroy(this.currentLevel?.gameObject);
+            await ClearLevel();
             await this.presenter.GetViewPresenter<WinViewPresenter>().Show();
         }
 
         private async void PlayHandler(int levelId)
         {
-            Destroy(this.currentLevel?.gameObject);
+            await ClearLevel();
             GameObject newLevel =
                 await Addressables.LoadAssetAsync<GameObject>($"Level_{levelId:D3}");
             this.currentLevel = Instantiate(newLevel).GetComponent<Level>();
