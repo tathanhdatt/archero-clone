@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public abstract class BaseViewPresenter
 {
-    private readonly List<BaseView> views = new List<BaseView>(4);
+    private readonly Dictionary<Type, BaseView> views = new Dictionary<Type, BaseView>(4);
     protected GamePresenter Presenter { get; private set; }
     protected Transform Transform { get; private set; }
     public bool IsShowing { get; private set; }
@@ -18,7 +19,7 @@ public abstract class BaseViewPresenter
     public async UniTask Initialize()
     {
         AddViews();
-        foreach (BaseView view in this.views)
+        foreach (BaseView view in this.views.Values)
         {
             await view.Initialize();
         }
@@ -30,15 +31,24 @@ public abstract class BaseViewPresenter
     {
         T view = Transform.GetComponentInChildren<T>();
         view.CanShowWithPresenter = canShowWithPresenter;
-        this.views.Add(view);
+        this.views.Add(typeof(T), view);
         return view;
+    }
+
+    public T GetView<T>() where T : BaseView
+    {
+        if (this.views.TryGetValue(typeof(T), out BaseView view))
+        {
+            return (T)view;
+        }
+        throw new KeyNotFoundException($"View of type {typeof(T)} not found");
     }
 
     public async UniTask Show()
     {
         if (IsShowing) return;
         IsShowing = true;
-        foreach (BaseView view in this.views)
+        foreach (BaseView view in this.views.Values)
         {
             if (view.CanShowWithPresenter)
             {
@@ -56,7 +66,7 @@ public abstract class BaseViewPresenter
     public async UniTask Hide()
     {
         IsShowing = false;
-        foreach (BaseView view in this.views)
+        foreach (BaseView view in this.views.Values)
         {
             await view.Hide();
         }

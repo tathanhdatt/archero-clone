@@ -14,6 +14,9 @@ namespace Core.Game
 
         [SerializeField, Required]
         private DialogManager dialogManager;
+        
+        [SerializeField, Required]
+        private Camera uiCamera;
 
         [SerializeField]
         private AbilityUpgradeData[] abilityUpgradeDatas;
@@ -31,12 +34,27 @@ namespace Core.Game
 
         private async UniTask Initialize()
         {
+            InitUICamera();
             await UniTask.CompletedTask;
             Application.targetFrameRate = 60;
             InitPoolService();
             InitAudioService();
         }
 
+        private void InitUICamera()
+        {
+            ActivateUICamera();
+        }
+
+        private void ActivateUICamera()
+        {
+            this.uiCamera.gameObject.SetActive(true);
+        }
+
+        private void DeactivateUICamera()
+        {
+            this.uiCamera.gameObject.SetActive(false);
+        }
         private void InitAudioService()
         {
             AudioService = FindAnyObjectByType<NativeAudioService>();
@@ -85,6 +103,7 @@ namespace Core.Game
 
         private async void LevelWinHandler()
         {
+            ActivateUICamera();
             await ClearLevel();
             await this.presenter.GetViewPresenter<WinViewPresenter>().Show();
         }
@@ -95,6 +114,7 @@ namespace Core.Game
             GameObject newLevel =
                 await Addressables.LoadAssetAsync<GameObject>($"Level_{levelId:D3}");
             this.currentLevel = Instantiate(newLevel).GetComponent<Level>();
+            DeactivateUICamera();
             await this.currentLevel.Initialize();
             await this.presenter.GetViewPresenter<HomeViewPresenter>().Hide();
             await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Hide();

@@ -1,5 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NavigatorViewPresenter : BaseViewPresenter
 {
@@ -16,47 +15,43 @@ public class NavigatorViewPresenter : BaseViewPresenter
         this.navigatorView = AddView<NavigatorView>();
     }
 
-    protected override void OnShow()
+    protected override async void OnShow()
     {
-        base.OnShow();
-        ShowViewPresenter(Presenter.GetViewPresenter<HomeViewPresenter>());
         this.navigatorView.OnClickedHome += OnClickedHomeHandler;
         this.navigatorView.OnClickedGear += OnClickedGearHandler;
         this.navigatorView.OnClickedGacha += OnClickedGachaHandler;
+        base.OnShow();
+        await Presenter.GetViewPresenter<HomeViewPresenter>().Show();
+        await Presenter.GetViewPresenter<GearViewPresenter>().Show();
     }
 
 
-    protected override void OnHide()
+    protected override async void OnHide()
     {
         base.OnHide();
         this.navigatorView.OnClickedHome -= OnClickedHomeHandler;
         this.navigatorView.OnClickedGear -= OnClickedGearHandler;
         this.navigatorView.OnClickedGacha -= OnClickedGachaHandler;
+        await Presenter.GetViewPresenter<HomeViewPresenter>().Show();
+        await Presenter.GetViewPresenter<GearViewPresenter>().Show();
     }
 
-    private async void OnClickedHomeHandler()
+    private void OnClickedHomeHandler()
     {
-        await ShowViewPresenter(Presenter.GetViewPresenter<HomeViewPresenter>());
+        this.showingViewPresenter = Presenter.GetViewPresenter<HomeViewPresenter>();
+        int index = this.showingViewPresenter.GetView<HomeView>().transform.GetSiblingIndex();
+        this.navigatorView.SnapToView(index);
     }
 
-    private async void OnClickedGearHandler()
+    private void OnClickedGearHandler()
     {
-        await ShowViewPresenter(Presenter.GetViewPresenter<GearViewPresenter>());
+        this.showingViewPresenter = Presenter.GetViewPresenter<GearViewPresenter>();
+        int index = this.showingViewPresenter.GetView<GearView>().transform.GetSiblingIndex();
+        this.navigatorView.SnapToView(index);
     }
 
     private void OnClickedGachaHandler()
     {
         Debug.Log("Show Gacha View");
-    }
-
-    private async UniTask ShowViewPresenter(BaseViewPresenter viewPresenter)
-    {
-        if (this.showingViewPresenter != null)
-        {
-            await this.showingViewPresenter.Hide();
-        }
-
-        this.showingViewPresenter = viewPresenter;
-        await this.showingViewPresenter.Show();
     }
 }
