@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c75742551fa4b2bb62561b763070a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 0}
+  movementDirection: {fileID: 11400000, guid: 63ff09e03a5964d429043b0356f6ba79, type: 2}
   maxSpeed: {fileID: 11400000, guid: 91e18678070045f49be5d177e000ecef, type: 2}
   character: {fileID: 3548260900991726794}
   rb: {fileID: 4970552837338555624}
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3548260900991726794}
-  joystick: {fileID: 0}
+  joystickAxis: {fileID: 11400000, guid: 63ff09e03a5964d429043b0356f6ba79, type: 2}
   offset: 90
 --- !u!114 &4678157228782796685
 MonoBehaviour:

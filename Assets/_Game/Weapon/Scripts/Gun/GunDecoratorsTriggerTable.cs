@@ -22,6 +22,5 @@ public class GunDecoratorsTriggerTable : ScriptableObject
         {
             this.triggersDict[this.triggersDict.Keys.ElementAt(i)] = false;
         }
-        this.triggersDict[this.triggersDict.Keys.First()] = true;
     }
 }

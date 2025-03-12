@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class PlayerMovement : InitializableMono
 {
     [SerializeField, Required]
-    private Joystick joystick;
+    private Vector2Variable movementDirection;
 
     [SerializeField, Required]
     private FloatVariable maxSpeed;
@@ -50,8 +50,10 @@ public class PlayerMovement : InitializableMono
     private void Update()
     {
         this.velocity = this.rb.linearVelocity;
-        this.isChangedHorizontal = !Mathf.Approximately(this.joystick.Horizontal, Mathf.Epsilon);
-        this.isChangedVertical = !Mathf.Approximately(this.joystick.Vertical, Mathf.Epsilon);
+        this.isChangedHorizontal = !Mathf.Approximately(
+            this.movementDirection.Value.x, Mathf.Epsilon);
+        this.isChangedVertical = !Mathf.Approximately(
+            this.movementDirection.Value.y, Mathf.Epsilon);
         RaiseEvents();
     }
 
@@ -95,16 +97,16 @@ public class PlayerMovement : InitializableMono
 
     private void HandleHorizontalInput()
     {
-        float speed = this.joystick.Horizontal * this.maxSpeed.Value;
+        float speed = this.movementDirection.Value.x * this.maxSpeed.Value;
         this.rb.linearVelocity = this.rb.linearVelocity.ReplaceX(speed);
     }
 
     private void HandleVerticalInput()
     {
-        float speed = this.joystick.Vertical * this.maxSpeed.Value;
+        float speed = this.movementDirection.Value.y * this.maxSpeed.Value;
         this.rb.linearVelocity = this.rb.linearVelocity.ReplaceZ(speed);
     }
-    
+
     public override async UniTask Terminate()
     {
         await UniTask.CompletedTask;

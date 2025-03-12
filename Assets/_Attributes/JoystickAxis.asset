@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af14f2c092449c7b7a127c8dba926e8, type: 3}
-  m_Name: Player_GunDecoratorsTriggerTable
+  m_Script: {fileID: 11500000, guid: e29e236d5bfe435eb3a63c1f9cc11506, type: 3}
+  m_Name: JoystickAxis
   m_EditorClassIdentifier: 
-  triggersDict:
-    m_keys: 02000000
-    m_values: 00
+  description: 
+  initialValue: {x: 0, y: 0}
+  value: {x: 0, y: 0}
