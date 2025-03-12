@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Effect Trigger Table")]
-public class EffectTriggerTable : ScriptableObject
+public class EffectTriggerTable : TriggerTable
 {
     public TypeEffectAndBoolDict effectsDict;
 
@@ -12,19 +12,11 @@ public class EffectTriggerTable : ScriptableObject
         this.effectsDict[type] = active;
     }
 
-    private void OnEnable()
+    public override void ResetTable()
     {
         for (int i = 0; i < this.effectsDict.Count; i++)
         {
             this.effectsDict[this.effectsDict.Keys.ElementAt(i)] = false;
         }
     }
-}
-
-[Serializable]
-public class EffectTrigger
-{
-    public EffectType type;
-
-    public bool active;
 }

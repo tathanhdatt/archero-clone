@@ -7,12 +7,18 @@ public class AbilityUpgradeData : ScriptableObject
 {
     [SpritePreview]
     public Sprite icon;
+
     public string skillName;
     public int currentLevel;
     public int MaxLevel => this.updateComponents.Count;
     public List<AbilityUpgradeComponent> updateComponents;
 
     private void OnEnable()
+    {
+        ResetData();
+    }
+
+    public void ResetData()
     {
         this.currentLevel = 0;
     }

@@ -19,7 +19,7 @@ public class GamePresenter : MonoBehaviour
     private void AddPresenters()
     {
         ScrollSkillViewPresenter scrollSkillViewPresenter =
-            new ScrollSkillViewPresenter(this, transform, this.manager.SkillUpdaterData);
+            new ScrollSkillViewPresenter(this, transform, this.manager.AbilityUpgradeDatas);
         AddPresenter(scrollSkillViewPresenter);
         
         GearViewPresenter gearViewPresenter = new GearViewPresenter(this, transform);

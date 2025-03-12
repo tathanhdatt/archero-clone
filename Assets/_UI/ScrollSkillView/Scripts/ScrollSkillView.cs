@@ -42,7 +42,7 @@ public class ScrollSkillView : BaseView
     private List<SkillUI> skillUIs;
 
     public List<SkillUI> SkillUIs => this.skillUIs;
-    
+
     public event Action OnSkillUpdated;
 
     public override async UniTask Initialize()
@@ -53,7 +53,7 @@ public class ScrollSkillView : BaseView
 
     private void ListenUpdatedSkill()
     {
-        this.skillUIs.ForEach(skillUI=>skillUI.OnSkillUpdated += OnSkillUpdatedHandler);
+        this.skillUIs.ForEach(skillUI => skillUI.OnSkillUpdated += OnSkillUpdatedHandler);
     }
 
     private void OnSkillUpdatedHandler()
@@ -118,7 +118,7 @@ public class ScrollSkillView : BaseView
     {
         for (int i = 0; i < this.skillUIs.Count; i++)
         {
-            this.skillUIs[i].Init(data[i]);
+            this.skillUIs[i].Init(data[i % data.Length]);
         }
     }
 

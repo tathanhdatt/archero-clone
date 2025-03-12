@@ -47,7 +47,7 @@ public class ScrollSkillViewPresenter : BaseViewPresenter
 
         this.scrollSkillView.SetSkillData(
             this.skillUpdaterData
-                .Where(data => data.currentLevel < data.updateComponents.Count)
+                .Where(data => data.currentLevel < data.MaxLevel)
                 .ToArray());
     }
 }

@@ -12,17 +12,15 @@ namespace Core.Game
         [SerializeField, Required]
         private GamePresenter presenter;
 
-        [Line]
         [SerializeField, Required]
         private DialogManager dialogManager;
 
-        [Line]
         [SerializeField]
-        private AbilityUpgradeData[] skillUpdaterData;
+        private AbilityUpgradeData[] abilityUpgradeDatas;
 
         private Level currentLevel;
 
-        public AbilityUpgradeData[] SkillUpdaterData => this.skillUpdaterData;
+        public AbilityUpgradeData[] AbilityUpgradeDatas => this.abilityUpgradeDatas;
         public IAudioService AudioService { get; private set; }
         public IPoolService PoolService { get; private set; }
 
@@ -64,7 +62,16 @@ namespace Core.Game
             Messenger.AddListener(Message.CombatLevelUp, CombatLevelUpHandler);
             Messenger.AddListener<int>(Message.Play, PlayHandler);
             Messenger.AddListener(Message.LevelWin, LevelWinHandler);
+            Messenger.AddListener(Message.ResetUpgradeData, ResetUpgradeDataHandler);
             await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Show();
+        }
+
+        private void ResetUpgradeDataHandler()
+        {
+            foreach (AbilityUpgradeData data in this.abilityUpgradeDatas)
+            {
+                data.ResetData();
+            }
         }
 
         private async UniTask ClearLevel()
@@ -75,6 +82,7 @@ namespace Core.Game
                 Destroy(this.currentLevel.gameObject);
             }
         }
+
         private async void LevelWinHandler()
         {
             await ClearLevel();
@@ -90,7 +98,7 @@ namespace Core.Game
             await this.currentLevel.Initialize();
             await this.presenter.GetViewPresenter<HomeViewPresenter>().Hide();
             await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Hide();
-            this.currentLevel.Play();
+            await this.currentLevel.Play();
         }
 
         private async void CombatLevelUpHandler()

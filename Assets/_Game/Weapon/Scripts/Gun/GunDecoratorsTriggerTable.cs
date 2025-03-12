@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gun Decorators Trigger Table")]
-public class GunDecoratorsTriggerTable : ScriptableObject
+public class GunDecoratorsTriggerTable : TriggerTable
 {
     public TypeGunDecoratorAndBoolDict triggersDict;
     public event Action<GunDecoratorType, bool> OnTriggerActiveChanged;
@@ -15,9 +15,9 @@ public class GunDecoratorsTriggerTable : ScriptableObject
         OnTriggerActiveChanged?.Invoke(type, active);
     }
 
-    private void OnEnable()
+
+    public override void ResetTable()
     {
-        if (this.triggersDict.Count == 0) return;
         for (int i = 0; i < this.triggersDict.Count; i++)
         {
             this.triggersDict[this.triggersDict.Keys.ElementAt(i)] = false;
