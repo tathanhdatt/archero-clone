@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectsDict:
     m_keys: 0000000001000000
-    m_values: 0000
+    m_values: 0100

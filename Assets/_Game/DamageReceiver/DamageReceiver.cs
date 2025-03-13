@@ -12,7 +12,7 @@ public abstract class DamageReceiver : InitializableMono
     public abstract float CurrentHealth { get; protected set; }
     public abstract float MaxHealth { get; }
 
-    public UnityEvent<DamageType> onTakenDamage;
+    public UnityEvent<DamageType, float> onTakenDamage;
     public UnityEvent onDeath;
 
     public override async UniTask Initialize()
@@ -30,7 +30,7 @@ public abstract class DamageReceiver : InitializableMono
         }
         else
         {
-            this.onTakenDamage?.Invoke(type);
+            this.onTakenDamage?.Invoke(type, incomingDamage);
         }
     }
 

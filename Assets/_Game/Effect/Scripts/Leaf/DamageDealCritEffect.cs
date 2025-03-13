@@ -9,7 +9,7 @@ public class DamageDealCritEffect : DamageDealEffectComponent
     public override void ApplyEffect(DamageReceiver receiver, float damage)
     {
         if (Random.Range(0f, 1f) > this.critRate.Value) return;
-        receiver.TakeDamage(damage);
+        receiver.TakeDamage(damage, DamageType.Critical);
     }
 
     [Button]

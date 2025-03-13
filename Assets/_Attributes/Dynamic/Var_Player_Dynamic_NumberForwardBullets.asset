@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Var_Player_Dynamic_NumberForwardBullets
   m_EditorClassIdentifier: 
   description: 
-  initValue: 2
-  value: 3
+  initValue: 1
+  value: 1
   logValueChanged: 0

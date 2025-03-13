@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Times of shoot per second
   initValue: 2
-  value: 2
+  value: 6
   logValueChanged: 0
