@@ -1,17 +1,21 @@
-﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
+using Dt.Attribute;
 using Dt.StateMachine.Core;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnableGameObjectsStateDecorator : StateDecorator
+public class NavMeshAgentStopSetterStateDecorator : StateDecorator
 {
+    [SerializeField, Required]
+    private NavMeshAgent agent;
+
     [SerializeField]
-    private List<GameObject> gameObjects;
+    private bool isStopped;
 
     protected override async UniTask OnStateEnter()
     {
+        this.agent.isStopped = this.isStopped;
         await UniTask.CompletedTask;
-        this.gameObjects.ForEach(go => go.SetActive(true));
     }
 
     protected override async UniTask OnStateUpdate()
@@ -26,7 +30,8 @@ public class EnableGameObjectsStateDecorator : StateDecorator
 
     public override void ResetName()
     {
+        gameObject.name =
+            $"Set NMAgent [{this.agent.name}] [{(this.isStopped ? "Stop" : "Continue")}]";
         base.ResetName();
-        gameObject.name = "Enable GameObjects";
     }
 }

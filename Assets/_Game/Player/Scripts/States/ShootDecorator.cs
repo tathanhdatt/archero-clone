@@ -7,10 +7,10 @@ using UnityEngine.Events;
 public class ShootDecorator : StateDecorator
 {
     [SerializeField, Required]
-    private FloatVariable delayTime;
+    private float delayTime;
 
     [SerializeField, Required]
-    private FloatVariable reloadTime;
+    private float reloadTime;
 
     [SerializeField, Required]
     private GunWrapper gun;
@@ -30,7 +30,7 @@ public class ShootDecorator : StateDecorator
         {
             this.remainReloadTime = 0;
         }
-        await UniTask.WaitForSeconds(this.delayTime.Value);
+        await UniTask.WaitForSeconds(this.delayTime, cancellationToken: destroyCancellationToken);
         this.canShoot = true;
     }
 
@@ -47,7 +47,7 @@ public class ShootDecorator : StateDecorator
         this.remainReloadTime -= Time.deltaTime;
         if (this.remainReloadTime > 0) return;
         Shoot();
-        this.remainReloadTime = this.reloadTime.Value;
+        this.remainReloadTime = this.reloadTime;
     }
 
     protected override async UniTask OnStateExit()

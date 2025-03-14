@@ -7,7 +7,7 @@ public class TransformSetEmptyCondition : Condition
     [SerializeField, Required]
     private TransformSet set;
 
-    public override bool IsMet => this.set.items.IsEmpty();
+    public override bool IsMet => this.set.IsEmptyOrNull();
 
     [Button]
     private void Rename()

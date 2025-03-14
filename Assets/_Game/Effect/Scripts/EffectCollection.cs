@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using Dt.Attribute;
+﻿using Dt.Attribute;
 using UnityEngine;
 
 public class EffectCollection : MonoBehaviour

@@ -3,10 +3,11 @@ using Cysharp.Threading.Tasks;
 using Dt.Attribute;
 using UnityEngine;
 
-public class GunWrapper : Gun
+[RequireComponent(typeof(CoreGun))]
+public class GunWrapper : InitializableMono
 {
     [SerializeField, Required]
-    private Gun coreGun;
+    private CoreGun coreGun;
 
     [SerializeField]
     private GunDecorator[] decorators;
@@ -17,9 +18,7 @@ public class GunWrapper : Gun
     [SerializeField, ReadOnly]
     private bool isInitialized;
 
-    public override Bullet BulletPrefab => this.wrapper.BulletPrefab;
-
-    public override event Action OnShot;
+    public event Action OnShot;
 
     public override async UniTask Initialize()
     {
@@ -30,7 +29,7 @@ public class GunWrapper : Gun
     }
 
     [Button]
-    public override void Shoot()
+    public void Shoot()
     {
         this.wrapper?.Shoot();
     }

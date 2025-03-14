@@ -31,7 +31,7 @@ public class IndicatorPositionSetter : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (this.transformSet.items.IsEmpty())
+        if (this.transformSet.IsEmptyOrNull())
         {
             this.indicatorTransform.gameObject.SetActive(false);
             return;

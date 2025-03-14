@@ -298,7 +298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d8a0ac77ad4dfc86dea5dc13fd8bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {fileID: 11400000, guid: 52a22baca6d00314783b03f5b14e9882, type: 2}
+  useSOVariable: 1
+  speedVariable: {fileID: 11400000, guid: 52a22baca6d00314783b03f5b14e9882, type: 2}
+  speedValue: 0
   speedBase: 1
   ease: 1
   onCompleted:
@@ -328,8 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60de35fa92ce43169be5a1b73cba6cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: {fileID: 11400000, guid: fe3c6e673a06dd44a920492d3293d4de, type: 2}
-  source: {fileID: 4569617143495493025}
+  useSOVariable: 1
+  distanceVariable: {fileID: 11400000, guid: fe3c6e673a06dd44a920492d3293d4de, type: 2}
+  distanceValue: 0
 --- !u!1001 &4800789306484249602
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class AnimationEventListener : MonoBehaviour
 {
-    public string eventName;
-    public UnityEvent response;
+    public List<UnityEvent> responses;
 
-    public void OnEventRaised()
+    public void OnEventRaised(int eventId)
     {
-        this.response.Invoke();
+        this.responses[eventId].Invoke();
     }
 }

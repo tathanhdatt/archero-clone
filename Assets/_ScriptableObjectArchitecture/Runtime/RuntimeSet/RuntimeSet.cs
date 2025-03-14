@@ -1,10 +1,17 @@
 ﻿using System.Collections.Generic;
+using Dt.Attribute;
 using UnityEditor;
 using UnityEngine;
 
 public abstract class RuntimeSet<T> : ScriptableObjectArchitecture
 {
-    public List<T> items = new List<T>();
+    [SerializeField]
+    protected List<T> items = new List<T>();
+
+    public bool IsEmptyOrNull()
+    {
+        return this.items == null || this.items.IsEmpty();
+    }
 
     public virtual void Add(T item)
     {

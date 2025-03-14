@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using Unity.Collections;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObject Architecture/Runtime Set/Transform Set")]
 public class TransformSet : RuntimeSet<Transform>
 {
+
+
     public Transform GetClosestFrom(Transform transform)
     {
         if (this.items.IsEmpty()) return null;
