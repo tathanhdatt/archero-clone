@@ -5,4 +5,5 @@
     Lightning = 1,
     Poison = 2,
     Critical = 3,
+    Collide = 4,
 }

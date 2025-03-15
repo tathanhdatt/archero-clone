@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 5831317623725613142}
   - component: {fileID: 7589425737976081447}
   - component: {fileID: 4570583830717671446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1904,7 +1904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8445528045773358582}
   - component: {fileID: 2658791429997240365}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Damage Dealer Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1941,7 +1941,6 @@ MonoBehaviour:
   radius: 1
   offset: {x: 0, y: 0, z: 0}
   incomingDamage: {fileID: 11400000, guid: 8c9a5263ebc10824ab79a0532768953b, type: 2}
-  damageableElements: {fileID: 11400000, guid: c924cd22cd8898c449ec12b63f1f7725, type: 2}
   damageableTag: {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
 --- !u!1 &5224393823590057750
 GameObject:
@@ -2721,7 +2720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025819983406917271}
   - component: {fileID: 5785721869479132461}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Damage Dealer Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2758,7 +2757,6 @@ MonoBehaviour:
   radius: 1
   offset: {x: 0, y: 0, z: 0}
   incomingDamage: {fileID: 11400000, guid: 9e896257de6b28f499fbae48dbe30ea9, type: 2}
-  damageableElements: {fileID: 11400000, guid: c924cd22cd8898c449ec12b63f1f7725, type: 2}
   damageableTag: {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
 --- !u!1 &8005002987670138058
 GameObject:

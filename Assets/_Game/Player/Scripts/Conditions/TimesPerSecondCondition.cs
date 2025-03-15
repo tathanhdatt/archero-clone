@@ -8,6 +8,9 @@ public class TimesPerSecondCondition : Condition
 {
     [SerializeField, Required]
     private FloatVariable timesPerSecond;
+    
+    [SerializeField, ReadOnly]
+    private float duration;
 
     private Coroutine delayCoroutine;
 
@@ -15,7 +18,7 @@ public class TimesPerSecondCondition : Condition
     {
         await base.OnEntered();
         this.isMet = false;
-        float duration = 1f / this.timesPerSecond.Value;
+        this.duration = 1f / this.timesPerSecond.Value;
         if (this.delayCoroutine != null)
         {
             StopCoroutine(this.delayCoroutine);

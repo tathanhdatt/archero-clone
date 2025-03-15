@@ -18,10 +18,21 @@ public class AnimationBoolDecorator : StateDecorator
     [SerializeField]
     private bool exitValue;
 
+    [Line]
+    [SerializeField]
+    private bool waitTransition;
+
+    [SerializeField, ShowIf(nameof(waitTransition))]
+    private int layer;
+
     protected override async UniTask OnStateEnter()
     {
         await UniTask.CompletedTask;
         this.animator.SetBool(this.boolVarName, this.enterValue);
+        if (this.waitTransition)
+        {
+            await UniTask.WaitUntil(() => !this.animator.IsInTransition(this.layer));
+        }
     }
 
     protected override async UniTask OnStateUpdate()
@@ -41,6 +52,7 @@ public class AnimationBoolDecorator : StateDecorator
         gameObject.name =
             $"Bool [{this.boolVarName}]: \"{this.enterValue}\" <-> \"{this.exitValue}\"";
     }
+
     private string[] GetVarNames()
     {
         return this.animator.parameters

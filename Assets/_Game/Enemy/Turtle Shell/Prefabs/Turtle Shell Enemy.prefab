@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 28743461611808537}
   - component: {fileID: 587077922055453173}
   - component: {fileID: 5457223625329722204}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2649,7 +2649,7 @@ GameObject:
   - component: {fileID: 6361683156953142264}
   - component: {fileID: 6641286681162268210}
   - component: {fileID: 4252583773352475170}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Damage Dealer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2685,6 +2685,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 11400000, guid: f0739ecb313caee4e9a4de75561410b9, type: 2}
   damageableTag: {fileID: 11400000, guid: 556429a85543d524c85911fe3e99fa44, type: 2}
+  damageType: 4
+  delayDealDamageCollide: 0.2
+  elapsedTime: 0
   onBeforeDamage:
     m_PersistentCalls:
       m_Calls: []

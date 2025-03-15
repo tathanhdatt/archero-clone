@@ -3,6 +3,9 @@
 public class ArcAreaShootGunDecorator : GunDecorator
 {
     [SerializeField]
+    private Bullet bulletPrefab;
+
+    [SerializeField]
     private float startEulerAngle;
 
     [SerializeField]
@@ -22,11 +25,11 @@ public class ArcAreaShootGunDecorator : GunDecorator
 
     private void SpawnBullets()
     {
+        Bullet prefab = this.bulletPrefab == null ? BulletPrefab : this.bulletPrefab;
         for (int i = 0; i < this.numberOfBullets; i++)
         {
-            Bullet bullet = Instantiate(BulletPrefab);
+            Bullet bullet = Instantiate(prefab);
             bullet.transform.position = transform.position;
-            // bullet.transform.forward = transform.forward;
             float eulerAngle = Random.Range(this.startEulerAngle, this.endEulerAngle);
             eulerAngle += transform.eulerAngles.y;
             bullet.transform.rotation = Quaternion.Euler(0, eulerAngle + this.angleOffset, 0);
