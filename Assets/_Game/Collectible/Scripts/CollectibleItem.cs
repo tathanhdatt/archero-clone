@@ -6,8 +6,9 @@ public class CollectibleItem
 {
     [Range(0f, 1f)]
     public float rate;
-    public IntRange rangeAmount;
-    public CollectableBlueprint blueprint;
+    public IntRange amountRange;
+    public IntRange valueRange;
+    public CollectibleObject prefab;
 }
 
 [Serializable]

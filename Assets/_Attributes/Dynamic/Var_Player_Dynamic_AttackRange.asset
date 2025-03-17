@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   initValue: 40
-  value: 10
+  value: 40
   logValueChanged: 0

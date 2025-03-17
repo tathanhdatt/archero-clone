@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e88f379d04f66aa6ea2a96417b6b7, type: 3}
   m_Name: Collectible Table
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - rate: 0.4
+    rangeAmount:
+      min: 0
+      max: 0
+    blueprint: {fileID: 0}

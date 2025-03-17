@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd43f3de30f4220a9633c6c71b7d507, type: 3}
   m_Name: Cfg_Enemy_Turtle_Damage
   m_EditorClassIdentifier: 
+  description: 
   initValue: 0
   value: 0
-  range:
-    min: 40
-    max: 50
+  logValueChanged: 0
+  min: 20
+  max: 40

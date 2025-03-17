@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ed91414e2e49548995a0664bf09065, type: 3}
   m_Name: Var_Player_Dynamic_CombatLevel
   m_EditorClassIdentifier: 
+  description: 
   initValue: 1
-  value: 0
+  value: 1
+  logValueChanged: 0

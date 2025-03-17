@@ -382,7 +382,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197609913}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -3960,6 +3960,63 @@ MonoBehaviour:
   ConformX: 1
   ConformY: 1
   Logging: 0
+--- !u!1001 &928967767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1352289956658474932, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_Name
+      value: Collectible Pools
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004690048605177048, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10f3dfaf0b545d04eaf0370676654851, type: 3}
 --- !u!1 &948426403
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,6 +4030,7 @@ GameObject:
   - component: {fileID: 948426405}
   - component: {fileID: 948426407}
   - component: {fileID: 948426408}
+  - component: {fileID: 948426409}
   m_Layer: 5
   m_Name: Xp Bar
   m_TagString: Untagged
@@ -4072,12 +4130,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: a4064d652b98f914e99eb687c960a3a5, type: 2}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4089,6 +4147,34 @@ MonoBehaviour:
       - m_Target: {fileID: 948426407}
         m_TargetAssemblyTypeName: ImageFillBar, Assembly-CSharp
         m_MethodName: FillTo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &948426409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948426403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2288b54631fc4f2c8a8f5d52d5c36d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventGeneric: {fileID: 11400000, guid: c091993320d12704a8834d4a0903510e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 948426408}
+        m_TargetAssemblyTypeName: CombatLevelTracker, Assembly-CSharp
+        m_MethodName: AddXp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10939,3 +11025,4 @@ SceneRoots:
   - {fileID: 50149324}
   - {fileID: 832575519}
   - {fileID: 672616040}
+  - {fileID: 928967767}

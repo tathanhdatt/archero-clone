@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Dt.Attribute;
 using Dt.StateMachine.Core;
@@ -55,6 +56,7 @@ public class AnimationBoolDecorator : StateDecorator
 
     private string[] GetVarNames()
     {
+        if (this.animator == null) return Array.Empty<string>();
         return this.animator.parameters
             .Where(parameter => parameter.type == AnimatorControllerParameterType.Bool)
             .Select(parameter => parameter.name).ToArray();

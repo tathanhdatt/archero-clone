@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 2342998904839119605}
   transformSet: {fileID: 11400000, guid: 9adcf5f241b3695408ab656166df527d, type: 2}
-  duration: 0.2
+  duration: 0.1
 --- !u!1 &5329451924737422955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,9 +1680,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1199296775940349118}
-  - component: {fileID: 3743755137320147204}
   - component: {fileID: 2530994366841964641}
   - component: {fileID: 5706422739508453763}
+  - component: {fileID: 3743755137320147204}
   - component: {fileID: 7020904679756070704}
   m_Layer: 9
   m_Name: Collector
@@ -1707,33 +1707,6 @@ Transform:
   - {fileID: 3478793980932822609}
   m_Father: {fileID: 3548260900991726794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3743755137320147204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6385766939862177230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7113e33779af421eb8f992d092cfa591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onCollect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7020904679756070704}
-        m_TargetAssemblyTypeName: XpAdder, Assembly-CSharp
-        m_MethodName: Add
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!54 &2530994366841964641
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1782,6 +1755,48 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &3743755137320147204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385766939862177230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7113e33779af421eb8f992d092cfa591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCollect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7020904679756070704}
+        m_TargetAssemblyTypeName: XpAdder, Assembly-CSharp
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCollectObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 520cf638db280aa479ed1f881996ff30, type: 2}
+        m_TargetAssemblyTypeName: CollectibleDespawnEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7020904679756070704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1798,22 +1813,10 @@ MonoBehaviour:
   onAdded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CombatLevelTracker, Assembly-CSharp
-        m_MethodName: AddXp
+      - m_Target: {fileID: 11400000, guid: c091993320d12704a8834d4a0903510e, type: 2}
+        m_TargetAssemblyTypeName: GameEvent`1[[System.Int32, mscorlib
+        m_MethodName: Raise
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1441937578815371738}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -134,54 +134,6 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &666143093588505558
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8346015549665715035}
-  - component: {fileID: 2457152600323422803}
-  m_Layer: 0
-  m_Name: Collectible Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8346015549665715035
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666143093588505558}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7775633085056638961}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2457152600323422803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666143093588505558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b5b66f29694c50a6b80943d10cd22b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  table: {fileID: 11400000, guid: 98fd78d4880005849845f554eb1bc6f6, type: 2}
-  jumpForce: 5
-  durationRange: {x: 0.5, y: 1}
-  radius: 3
 --- !u!1 &691950286623573504
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +612,8 @@ MonoBehaviour:
   boolVarName: Attack Bool
   enterValue: 1
   exitValue: 0
+  waitTransition: 0
+  layer: 0
 --- !u!1 &1980674728795566458
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +872,8 @@ MonoBehaviour:
   boolVarName: Chase Bool
   enterValue: 1
   exitValue: 0
+  waitTransition: 0
+  layer: 0
 --- !u!1 &3660309330248898889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7775633085056638961
 Transform:
   m_ObjectHideFlags: 0
@@ -1048,7 +1004,6 @@ Transform:
   - {fileID: 2861273965559786993}
   - {fileID: 7738675612177581506}
   - {fileID: 2578563861511947110}
-  - {fileID: 8346015549665715035}
   - {fileID: 1640524070589847962}
   - {fileID: 4066944281790786321}
   - {fileID: 5725518439551566290}
@@ -1188,6 +1143,8 @@ MonoBehaviour:
   boolVarName: Get Hit Bool
   enterValue: 1
   exitValue: 0
+  waitTransition: 0
+  layer: 0
 --- !u!1 &4616674795041027977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,10 +1306,10 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2457152600323422803}
-        m_TargetAssemblyTypeName: CollectibleSpawner, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 1
+      - m_Target: {fileID: 3942277378830652533}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1361,13 +1318,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3942277378830652533}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11400000, guid: e5e1fc66e81464e4c98b1b4e8d17624b, type: 2}
+        m_TargetAssemblyTypeName: CollectibleSpawnEvent, Assembly-CSharp
+        m_MethodName: SetSpawnPosition
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 7775633085056638961}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: e5e1fc66e81464e4c98b1b4e8d17624b, type: 2}
+        m_TargetAssemblyTypeName: CollectibleSpawnEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 98fd78d4880005849845f554eb1bc6f6, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CollectibleTable, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1489,6 +1458,8 @@ MonoBehaviour:
   boolVarName: Die Bool
   enterValue: 1
   exitValue: 0
+  waitTransition: 0
+  layer: 0
 --- !u!1 &4733265147611266810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2265,8 @@ MonoBehaviour:
   boolVarName: Idle Bool
   enterValue: 1
   exitValue: 0
+  waitTransition: 0
+  layer: 0
 --- !u!1 &7230001821879725864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +2781,7 @@ MonoBehaviour:
   currentRootState: {fileID: 0}
   lastRootState: {fileID: 0}
   isInitialized: 0
+  isChangingState: 0
 --- !u!114 &6549512037995511094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3678,6 +3652,10 @@ PrefabInstance:
       propertyPath: context
       value: 
       objectReference: {fileID: 3272090800799468069}
+    - target: {fileID: 1367696661525795032, guid: 7f5d30764774f0940943f876084ff2c9, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1367696661525795032, guid: 7f5d30764774f0940943f876084ff2c9, type: 3}
       propertyPath: context
       value: 

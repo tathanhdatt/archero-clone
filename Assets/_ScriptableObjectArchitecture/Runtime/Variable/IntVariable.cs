@@ -18,7 +18,7 @@ public class IntVariable : ScriptableObjectVariable
         this.value = this.initValue;
     }
 
-    public virtual int Value
+    public int Value
     {
         get => this.value;
         set

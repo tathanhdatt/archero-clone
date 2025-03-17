@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecd9609b62749fb96b831ea2c878feb, type: 3}
   m_Name: Var_Player_CurveBulletSpeed
   m_EditorClassIdentifier: 
+  description: 
   initValue: 10
-  value: 0
+  value: 10
+  logValueChanged: 0

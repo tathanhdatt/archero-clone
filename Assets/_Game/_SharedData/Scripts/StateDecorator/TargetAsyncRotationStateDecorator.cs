@@ -25,6 +25,7 @@ public class TargetAsyncRotationStateDecorator : StateDecorator
 
     private Vector3 CalculateDirection()
     {
+        if (this.transformSet.IsEmptyOrNull()) return Vector3.zero;
         return this.transformSet.GetClosestFrom(RootTransform).position - RootTransform.position;
     }
 

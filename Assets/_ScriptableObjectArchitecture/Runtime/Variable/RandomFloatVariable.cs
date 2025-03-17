@@ -3,17 +3,14 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(menuName = "ScriptableObject Architecture/Variable/Random Float")]
-public class RandomFloatVariable : FloatVariable
+public class RandomFloatVariable : FloatVariable, IRandomVariable
 {
     [SerializeField]
-    private FloatRange range;
-    
-    [Serializable]
-    private struct FloatRange
-    {
-        public float min;
-        public float max;
-    }
+    private float min;
 
-    public override float Value => Random.Range(this.range.min, this.range.max);
+    [SerializeField]
+    private float max;
+    
+    public override float Value => Random.Range(this.min, this.max);
+    public override event Action OnValueChanged;
 }
