@@ -28,12 +28,11 @@ public class TransformScaler : StateDecorator
         await UniTask.CompletedTask;
         this.tweener?.Kill();
         this.tweener = this.target.DOScale(this.targetScale, this.duration);
+        this.tweener.SetEase(this.ease);
         if (this.async)
         {
             await this.tweener.AsyncWaitForCompletion();
         }
-
-        this.tweener.SetEase(this.ease);
     }
 
     protected override async UniTask OnStateUpdate()

@@ -4,6 +4,6 @@ using UnityEngine;
 public class CollectibleObject : MonoBehaviour
 {
     [ReadOnly]
-    public int value;
+    public float value;
     public CollectibleType type;
 }

@@ -75,6 +75,12 @@
       "source": "local",
       "dependencies": {}
     },
+    "com.trinary.mec": {
+      "version": "file:D:/1/Assets/_myunitypackages/com.dt/com.trinary.mec",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.common": {
       "version": "9.0.7",
       "depth": 1,

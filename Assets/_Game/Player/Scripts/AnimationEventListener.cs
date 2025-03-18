@@ -8,6 +8,6 @@ public class AnimationEventListener : MonoBehaviour
 
     public void OnEventRaised(int eventId)
     {
-        this.responses[eventId].Invoke();
+        this.responses[eventId]?.Invoke();
     }
 }

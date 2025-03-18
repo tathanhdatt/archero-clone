@@ -58,14 +58,15 @@ public class CollectibleSpawner : MonoBehaviour
         for (int i = 0; i < number; i++)
         {
             CollectibleObject collectible = GetObjectFromPools(item.prefab);
+            collectible.transform.position = position;
             collectible.type = item.prefab.type;
             collectible.gameObject.SetActive(true);
             Vector3 target = Random.insideUnitSphere * this.radius;
             target.y = 1;
-            float duration = Random.Range(this.durationRange.x, this.durationRange.y);
             target.x += position.x;
             target.z += position.z;
             collectible.value = Random.Range(item.valueRange.min, item.valueRange.max);
+            float duration = Random.Range(this.durationRange.x, this.durationRange.y);
             collectible.transform
                 .DOJump(target, this.jumpForce, 1, duration)
                 .SetEase(Ease.OutBounce);
@@ -78,6 +79,11 @@ public class CollectibleSpawner : MonoBehaviour
         if (!containKey)
         {
             CreatePool(prefab);
+        }
+
+        if (this.pools[prefab.type].Count <= 0)
+        {
+            SpawnNewInstance(prefab);
         }
 
         CollectibleObject newObject = this.pools[prefab.type].Pop();
@@ -104,6 +110,11 @@ public class CollectibleSpawner : MonoBehaviour
     private void CreatePool(CollectibleObject prefab)
     {
         this.pools.Add(prefab.type, new Stack<CollectibleObject>(20));
+        SpawnNewInstance(prefab);
+    }
+
+    private void SpawnNewInstance(CollectibleObject prefab)
+    {
         CollectibleObject collectibleObject = Instantiate(prefab, transform);
         collectibleObject.gameObject.SetActive(false);
         this.pools[prefab.type].Push(collectibleObject);

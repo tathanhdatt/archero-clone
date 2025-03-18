@@ -18,6 +18,7 @@ public class ClosestTransformInRangeCondition : Condition
     private bool IsInRange()
     {
         Transform closest = this.transformSet.GetClosestFrom(this.root);
+        if (closest == null) return false;
         if (Vector3.Distance(closest.position, this.root.position) < this.range)
         {
             return true;

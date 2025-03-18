@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91bbc52d8064ec1bbd93b7107f46c7f, type: 3}
+  m_Name: Updater_Player_Pierce
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: fb23517514861b346a9fbcea1493ccce, type: 2}
+  value: 1
+  originalValue: 0
+  description: 

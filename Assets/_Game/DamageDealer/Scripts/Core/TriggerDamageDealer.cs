@@ -8,14 +8,17 @@ public class TriggerDamageDealer : DamageDealer
     private FloatVariable damage;
 
     [SerializeField, Required]
+    private FloatVariable criticalHitChance;
+
+    [SerializeField, Required]
     private Tag damageableTag;
 
-    [SerializeField]
-    private DamageType damageType;
+    [SerializeField, Required]
+    private DamageTypeVariable damageType;
 
     [SerializeField, ShowIf(nameof(damageType), DamageType.Collide)]
     private float delayDealDamageCollide;
-    
+
     [SerializeField, ShowIf(nameof(damageType), DamageType.Collide), ReadOnly]
     private float elapsedTime;
 
@@ -32,7 +35,7 @@ public class TriggerDamageDealer : DamageDealer
 
     private void OnTriggerStay(Collider other)
     {
-        if (this.damageType != DamageType.Collide) return;
+        if (!this.damageType.Value.HasFlag(DamageType.Collide)) return;
         DealDamageCollide(other);
     }
 
@@ -68,7 +71,15 @@ public class TriggerDamageDealer : DamageDealer
     public override void DealDamage()
     {
         this.onBeforeDamage?.Invoke(this.cachedDamageReceiver, this.damage.Value);
-        this.cachedDamageReceiver.TakeDamage(this.damage.Value, this.damageType);
+        bool criticalHit = Random.Range(0f, 1f) < Mathf.Clamp01(this.criticalHitChance.Value);
+        DamageType type = this.damageType.Value;
+        float damageValue = this.damage.Value;
+        if (criticalHit)
+        {
+            type |= DamageType.Critical;
+            damageValue = this.damage.Value * 2f;
+        }
+        this.cachedDamageReceiver.TakeDamage(damageValue, type);
         this.onAfterDamage?.Invoke(this.cachedDamageReceiver, this.damage.Value);
     }
 }

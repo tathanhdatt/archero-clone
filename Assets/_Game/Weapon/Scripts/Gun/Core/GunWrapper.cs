@@ -18,8 +18,6 @@ public class GunWrapper : InitializableMono
     [SerializeField, ReadOnly]
     private bool isInitialized;
 
-    public event Action OnShot;
-
     public override async UniTask Initialize()
     {
         await UniTask.CompletedTask;

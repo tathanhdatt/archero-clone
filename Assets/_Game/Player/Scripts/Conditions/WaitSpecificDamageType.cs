@@ -11,13 +11,12 @@ public class WaitSpecificDamageType : Condition
     [SerializeField, ReadOnly]
     private DamageType actualDamageType;
 
-    public override bool IsMet => this.actualDamageType != DamageType.NoType &&
-                                  this.actualDamageType == this.expectedDamageType;
+    public override bool IsMet => this.actualDamageType.HasFlag(this.expectedDamageType);
 
     protected override async UniTask OnEntered()
     {
         await base.OnEntered();
-        this.actualDamageType = DamageType.NoType;
+        this.actualDamageType = 0;
     }
 
     public void SetType(DamageType damageType)

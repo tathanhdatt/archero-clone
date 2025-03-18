@@ -32,8 +32,13 @@ public class AnimationBoolDecorator : StateDecorator
         this.animator.SetBool(this.boolVarName, this.enterValue);
         if (this.waitTransition)
         {
-            await UniTask.WaitUntil(() => !this.animator.IsInTransition(this.layer));
+            await UniTask.WaitUntil(IsTransitionCompleted);
         }
+    }
+
+    private bool IsTransitionCompleted()
+    {
+        return !this.animator.IsInTransition(this.layer);
     }
 
     protected override async UniTask OnStateUpdate()

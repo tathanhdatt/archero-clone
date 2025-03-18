@@ -19,11 +19,17 @@ public class TextPopup : MonoBehaviour
     private Ease ease;
     
     private Tweener tweener;
+
+    public void Initialize(string content)
+    {
+        Initialize(content, this.text.fontSize);
+    }
     
-    public async void Initialize(string content)
+    public async void Initialize(string content, float fontsize)
     {
         ResetScale();
         this.text.SetText(content);
+        this.text.fontSize = fontsize;
         await ScaleUp();
         Destroy(gameObject);
     }

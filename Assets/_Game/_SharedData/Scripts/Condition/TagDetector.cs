@@ -28,6 +28,16 @@ public class TagDetector : Condition
 
     private void OnTriggerEnter(Collider other)
     {
+        Detect(other);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Detect(other);
+    }
+
+    private void Detect(Collider other)
+    {
         if (this.lastCollider == other)
         {
             if (this.lastTags.GetTags().Contains(this.detectedTag))

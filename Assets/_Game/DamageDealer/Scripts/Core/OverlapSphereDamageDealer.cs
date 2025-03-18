@@ -15,6 +15,9 @@ public class OverlapSphereDamageDealer : DamageDealer
     [SerializeField, Required]
     private Tag damageableTag;
 
+    [SerializeField, Required]
+    private DamageTypeVariable damageType;
+
     private readonly Collider[] colliders = new Collider[10];
     private Collider cachedCollider;
     private DamageReceiver cachedDamageReceiver;
@@ -39,7 +42,7 @@ public class OverlapSphereDamageDealer : DamageDealer
         }
 
         if (this.cachedDamageReceiver == null) return;
-        this.cachedDamageReceiver.TakeDamage(this.incomingDamage.Value);
+        this.cachedDamageReceiver.TakeDamage(this.incomingDamage.Value, this.damageType.Value);
     }
 
     private void OnDrawGizmosSelected()

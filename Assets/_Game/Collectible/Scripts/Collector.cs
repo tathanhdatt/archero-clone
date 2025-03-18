@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Collector : MonoBehaviour
 {
-    public UnityEvent<CollectibleType, int> onCollect;
+    public UnityEvent<CollectibleType, float> onCollect;
     public UnityEvent<CollectibleObject> onCollectObject;
 
     private void OnTriggerEnter(Collider other)

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectType: 0
   triggerTable: {fileID: 11400000, guid: 6167ad3163da4c444aa6314d3201a891, type: 2}
-  value: 1
+  value: 0
   description: Enable Crit Effect

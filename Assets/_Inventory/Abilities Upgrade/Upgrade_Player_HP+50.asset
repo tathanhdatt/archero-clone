@@ -15,5 +15,5 @@ MonoBehaviour:
   modifiedType: 1
   variable: {fileID: 11400000, guid: eedc99a46b59bb04b9f46cea629230aa, type: 2}
   percentage: 0
-  value: 50
+  value: 0
   description: HP +50

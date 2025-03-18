@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &495172252026214840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3860266479695312102}
+  - component: {fileID: 6562359948916328345}
+  m_Layer: 0
+  m_Name: Wait Death Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3860266479695312102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495172252026214840}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4688442206872865893}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6562359948916328345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495172252026214840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf61ebf51acc40a19bafa04e6b1e7592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEntered: 0
+  isMet: 0
 --- !u!1 &608780564002488375
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,10 +117,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2472310076839558976}
-  - component: {fileID: 8015442255700768191}
   - component: {fileID: 5323843527999006968}
+  - component: {fileID: 5945085337928714597}
   m_Layer: 0
-  m_Name: '|-> [ Death State ] >< [ Get Hit State ]'
+  m_Name: '|-> [ Death State ]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,21 +142,6 @@ Transform:
   - {fileID: 943154554512791587}
   m_Father: {fileID: 6210852621072757792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8015442255700768191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944732939623776849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f567acee7ec742d783b73d60f5ba55e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  condition: {fileID: 3450143484896398101}
-  trueRootState: {fileID: 4653258755304547832}
-  falseRootState: {fileID: 1095005377088093376}
 --- !u!114 &5323843527999006968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +156,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 3229143834386890273}
   condition: {fileID: 3450143484896398101}
-  stateSelector: {fileID: 8015442255700768191}
+  stateSelector: {fileID: 5945085337928714597}
+--- !u!114 &5945085337928714597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944732939623776849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e84d7b4ff6847de8f539225fd085d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expectedState: {fileID: 4653258755304547832}
 --- !u!1 &1009505658941353188
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +309,7 @@ MonoBehaviour:
   isMet: 0
   animator: {fileID: 5221443124297833155}
   animationName: GetHit
+  multiplier: 1
   animationDuration: 0.43333334
   isAnimationComplete: 0
 --- !u!1 &1702939118945116532
@@ -602,6 +647,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6734810436463042938}
+  - {fileID: 4688442206872865893}
   - {fileID: 3777759836014130813}
   - {fileID: 6334806135101917452}
   m_Father: {fileID: 1174701044671956389}
@@ -634,6 +680,7 @@ MonoBehaviour:
   nullState: {fileID: 2838520273323983198}
   stateDecorators:
   - {fileID: 1474335716736299319}
+  - {fileID: 4455203086133548129}
   - {fileID: 4739273747431383494}
   - {fileID: 2482482768010688726}
   onEnter:
@@ -786,6 +833,7 @@ MonoBehaviour:
   isMet: 0
   animator: {fileID: 5221443124297833155}
   animationName: Die
+  multiplier: 1
   animationDuration: 1.3333334
   isAnimationComplete: 0
 --- !u!1 &3764787621954383250
@@ -1378,7 +1426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8300732814496043983
 Transform:
   m_ObjectHideFlags: 0
@@ -1523,6 +1571,30 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5283034945042580056}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 190377659415411608}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3450143484896398101}
         m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
         m_MethodName: MetEvent
@@ -1547,10 +1619,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5283034945042580056}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1813857409754237373}
+        m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
+        m_MethodName: MetEvent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1559,9 +1631,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 190377659415411608}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 6562359948916328345}
+        m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
+        m_MethodName: MetEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1919,6 +1991,68 @@ MonoBehaviour:
   context: {fileID: 3229143834386890273}
   navMeshAgent: {fileID: 2096331795425322963}
   targetTransformSet: {fileID: 11400000, guid: 21d1718cee4fef143a89e3b789a864fc, type: 2}
+--- !u!1 &5528731118983340170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4339198374009124748}
+  - component: {fileID: 6882572299172009536}
+  - component: {fileID: 7695699661667544211}
+  m_Layer: 0
+  m_Name: '|-> [ Death State ]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4339198374009124748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528731118983340170}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 844171494073340241}
+  m_Father: {fileID: 2823255805297802316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6882572299172009536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528731118983340170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e84d7b4ff6847de8f539225fd085d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expectedState: {fileID: 4653258755304547832}
+--- !u!114 &7695699661667544211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528731118983340170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688b5e1113423df459cdaf9c85b68457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 3229143834386890273}
+  condition: {fileID: 1813857409754237373}
+  stateSelector: {fileID: 6882572299172009536}
 --- !u!1 &5617877298524254876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2184,68 @@ MonoBehaviour:
   exitValue: 0
   waitTransition: 0
   layer: 0
+--- !u!1 &5935481524118274206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4688442206872865893}
+  - component: {fileID: 7559613175701367698}
+  - component: {fileID: 4455203086133548129}
+  m_Layer: 0
+  m_Name: '|-> [ Death State ]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4688442206872865893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935481524118274206}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3860266479695312102}
+  m_Father: {fileID: 7823907440130031479}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7559613175701367698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935481524118274206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e84d7b4ff6847de8f539225fd085d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expectedState: {fileID: 4653258755304547832}
+--- !u!114 &4455203086133548129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935481524118274206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688b5e1113423df459cdaf9c85b68457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 3229143834386890273}
+  condition: {fileID: 6562359948916328345}
+  stateSelector: {fileID: 7559613175701367698}
 --- !u!1 &6196597674146084333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,6 +2296,52 @@ MonoBehaviour:
   duration: 0.2
   ease: 6
   async: 1
+--- !u!1 &6229563498419270439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 844171494073340241}
+  - component: {fileID: 1813857409754237373}
+  m_Layer: 0
+  m_Name: Wait Death Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &844171494073340241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229563498419270439}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4339198374009124748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1813857409754237373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229563498419270439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf61ebf51acc40a19bafa04e6b1e7592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEntered: 0
+  isMet: 0
 --- !u!1 &6441285690917923687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,6 +2630,7 @@ MonoBehaviour:
   isMet: 0
   animator: {fileID: 5221443124297833155}
   animationName: Attack01
+  multiplier: 1
   animationDuration: 0.8333334
   isAnimationComplete: 0
 --- !u!1 &7690364604779695745
@@ -2716,6 +2959,7 @@ Transform:
   - {fileID: 7765794275288478701}
   - {fileID: 1137469576363702797}
   - {fileID: 318203277848922674}
+  - {fileID: 4339198374009124748}
   - {fileID: 259605641522049320}
   m_Father: {fileID: 1174701044671956389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2749,6 +2993,7 @@ MonoBehaviour:
   - {fileID: 8008372039227453103}
   - {fileID: 5333708063900926182}
   - {fileID: 8445097404578306710}
+  - {fileID: 7695699661667544211}
   - {fileID: 4308638825079343184}
   onEnter:
     m_PersistentCalls:
@@ -3048,9 +3293,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3229143834386890273}
     - target: {fileID: 1367696661525795032, guid: 7f5d30764774f0940943f876084ff2c9, type: 3}
+      propertyPath: gameObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367696661525795032, guid: 7f5d30764774f0940943f876084ff2c9, type: 3}
       propertyPath: 'gameObjects.Array.data[0]'
       value: 
       objectReference: {fileID: 1304438518423799052}
+    - target: {fileID: 1367696661525795032, guid: 7f5d30764774f0940943f876084ff2c9, type: 3}
+      propertyPath: 'gameObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4967697484113404380}
     - target: {fileID: 2165009891566551579, guid: 7f5d30764774f0940943f876084ff2c9, type: 3}
       propertyPath: target
       value: 
@@ -3071,6 +3324,10 @@ PrefabInstance:
       propertyPath: context
       value: 
       objectReference: {fileID: 3229143834386890273}
+    - target: {fileID: 4504656009524256262, guid: 7f5d30764774f0940943f876084ff2c9, type: 3}
+      propertyPath: m_Name
+      value: 'Set GameObjects [True]'
+      objectReference: {fileID: 0}
     - target: {fileID: 5503985906172174059, guid: 7f5d30764774f0940943f876084ff2c9, type: 3}
       propertyPath: m_Name
       value: '[ AppearState ]'

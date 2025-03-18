@@ -8,7 +8,7 @@ public class CombatLevelTracker : MonoBehaviour
     private CombatXpDatabase xpDatabase;
 
     [SerializeField, ReadOnly]
-    private int currentXp;
+    private float currentXp;
 
     [SerializeField, Required]
     private IntVariable currentLevel;
@@ -21,11 +21,11 @@ public class CombatLevelTracker : MonoBehaviour
         this.currentXp = 0;
     }
 
-    public void AddXp(int xpToAdd)
+    public void AddXp(float xpToAdd)
     {
         this.currentXp += xpToAdd;
         int xpRequired = this.xpDatabase.levelXpRequired[this.currentLevel.Value - 1];
-        this.onReceivedXpPercentage?.Invoke((float)this.currentXp / xpRequired);
+        this.onReceivedXpPercentage?.Invoke(this.currentXp / xpRequired);
         if (this.currentXp < xpRequired) return;
         bool isMaxLevel = this.currentLevel.Value >= this.xpDatabase.levelXpRequired.Count;
         if (isMaxLevel) return;

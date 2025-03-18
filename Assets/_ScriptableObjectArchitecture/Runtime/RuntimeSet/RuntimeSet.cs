@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Dt.Attribute;
-using UnityEditor;
 using UnityEngine;
 
 public abstract class RuntimeSet<T> : ScriptableObjectArchitecture

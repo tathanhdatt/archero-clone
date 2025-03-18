@@ -1,9 +1,11 @@
-﻿public enum DamageType
+﻿using System;
+
+[Flags]
+public enum DamageType
 {
-    NoType = -1,
-    Normal = 0,
-    Lightning = 1,
-    Poison = 2,
-    Critical = 3,
-    Collide = 4,
+    Lightning = 1 << 1,
+    Poison = 1 << 2,
+    Critical = 1 << 3,
+    Collide = 1 << 4,
+    Ice = 1 << 5,
 }

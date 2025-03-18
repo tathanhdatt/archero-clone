@@ -79,9 +79,10 @@ namespace Core.Game
             await UniTask.CompletedTask;
             Messenger.AddListener(Message.CombatLevelUp, CombatLevelUpHandler);
             Messenger.AddListener<int>(Message.Play, PlayHandler);
-            Messenger.AddListener(Message.LevelWin, LevelWinHandler);
+            // Messenger.AddListener(Message.LevelWin, LevelWinHandler);
             Messenger.AddListener(Message.ResetUpgradeData, ResetUpgradeDataHandler);
-            await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Show();
+            // await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Show();
+            PlayHandler(1);
         }
 
         private void ResetUpgradeDataHandler()

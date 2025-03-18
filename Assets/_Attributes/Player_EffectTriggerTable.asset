@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Player_EffectTriggerTable
   m_EditorClassIdentifier: 
   effectsDict:
-    m_keys: 0000000001000000
-    m_values: 0100
+    m_keys: 00000000
+    m_values: 00

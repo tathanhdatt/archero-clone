@@ -21,12 +21,14 @@ public abstract class DamageReceiver : InitializableMono
         await UniTask.CompletedTask;
     }
 
-    public void TakeDamage(float incomingDamage, DamageType type = DamageType.Normal)
+    public void TakeDamage(float incomingDamage, DamageType type)
     {
+        if (CurrentHealth <= 0) return;
         CurrentHealth -= incomingDamage;
         if (CurrentHealth <= 0)
         {
             this.onDeath?.Invoke();
+            gameObject.SetActive(false);
         }
         else
         {

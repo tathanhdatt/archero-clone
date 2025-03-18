@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Dt.Attribute;
 using Dt.Condition.Core;
+using MEC;
 using UnityEngine;
 
 public class TimesPerSecondCondition : Condition
@@ -12,31 +13,31 @@ public class TimesPerSecondCondition : Condition
     [SerializeField, ReadOnly]
     private float duration;
 
-    private Coroutine delayCoroutine;
+    private CoroutineHandle delayCoroutine;
 
     protected override async UniTask OnEntered()
     {
         await base.OnEntered();
         this.isMet = false;
         this.duration = 1f / this.timesPerSecond.Value;
-        if (this.delayCoroutine != null)
+        if (this.delayCoroutine != default)
         {
-            StopCoroutine(this.delayCoroutine);
+            Timing.KillCoroutines(this.delayCoroutine);
         }
 
-        this.delayCoroutine = StartCoroutine(Delay(duration));
+        this.delayCoroutine = Timing.RunCoroutine(Delay(this.duration));
     }
 
-    private IEnumerator Delay(float seconds)
+    private IEnumerator<float> Delay(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
+        yield return Timing.WaitForSeconds(seconds);
         this.isMet = true;
     }
 
     protected override async UniTask OnExited()
     {
         await base.OnExited();
-        StopCoroutine(this.delayCoroutine);
+        Timing.KillCoroutines(this.delayCoroutine);
     }
 
     [Button]

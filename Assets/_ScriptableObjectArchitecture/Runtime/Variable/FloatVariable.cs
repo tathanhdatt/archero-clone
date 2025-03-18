@@ -10,13 +10,18 @@ public class FloatVariable : ScriptableObjectVariable
 
     [SerializeField]
     protected float value;
-    
+
     [SerializeField]
     private bool logValueChanged;
 
     public override event Action OnValueChanged;
 
     private void OnEnable()
+    {
+        ResetValue();
+    }
+
+    public void ResetValue()
     {
         this.value = this.initValue;
     }
@@ -36,8 +41,14 @@ public class FloatVariable : ScriptableObjectVariable
     }
 
     [Button]
-    private void SetValue(float value)
+    public void SetValue(float value)
     {
         Value = value;
+    }
+
+    [Button]
+    public void AddValue(float value)
+    {
+        Value += value;
     }
 }

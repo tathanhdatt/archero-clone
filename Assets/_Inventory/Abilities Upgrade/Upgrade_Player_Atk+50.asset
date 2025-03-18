@@ -15,5 +15,5 @@ MonoBehaviour:
   modifiedType: 1
   variable: {fileID: 11400000, guid: 872abd61d81725544a77c7b1640a5360, type: 2}
   percentage: 0
-  value: 50
+  value: 0
   description: Atk +100

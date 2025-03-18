@@ -1,19 +1,28 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
+using Dt.Attribute;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DamageReceiverPopupSpawner : MonoBehaviour
 {
+    [Title("Config")]
     [SerializeField]
     private TextPopup prefab;
 
     [SerializeField]
-    private Color normalColor;
+    private float randomRadius;
+
+    [Title("Colors")]
+    [SerializeField]
+    private List<DamageTypeColor> colors;
+
+    [Title("Font size")]
+    [SerializeField]
+    private float normalFontSize;
 
     [SerializeField]
-    private Color criticalColor;
-    
-    [SerializeField]
-    private float randomRadius;
+    private float criticalFontSize;
 
     public void Create(DamageType type, float incomingDamage)
     {
@@ -21,20 +30,21 @@ public class DamageReceiverPopupSpawner : MonoBehaviour
         Vector3 randomPos = Random.insideUnitCircle * this.randomRadius;
         randomPos.z = 0;
         textPopup.transform.localPosition = randomPos;
-        switch (type)
+        float fontSize = this.normalFontSize;
+        foreach (DamageTypeColor typeColor in this.colors)
         {
-            case DamageType.Critical:
-                textPopup.SetColor(this.criticalColor);
-                break;
-            case DamageType.NoType:
-            case DamageType.Normal:
-            case DamageType.Lightning:
-            case DamageType.Poison:
-            default:
-                textPopup.SetColor(this.normalColor);
-                break;
+            if (!type.HasFlag(typeColor.type)) continue;
+            textPopup.SetColor(typeColor.color);
+            break;
         }
 
-        textPopup.Initialize((-incomingDamage).ToString(CultureInfo.InvariantCulture));
+        string content = $"-{incomingDamage:F0}";
+        textPopup.Initialize(content, fontSize);
+    }
+    [Serializable]
+    private struct DamageTypeColor
+    {
+        public DamageType type;
+        public Color color;
     }
 }

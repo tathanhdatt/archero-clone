@@ -9,6 +9,9 @@ public class IndicatorPositionSetter : MonoBehaviour
     [SerializeField, Required]
     private Transform indicatorTransform;
 
+    [SerializeField, Required]
+    private Transform source;
+
     [SerializeField]
     private Vector3 offset;
 
@@ -42,7 +45,7 @@ public class IndicatorPositionSetter : MonoBehaviour
             this.indicatorTransform.gameObject.SetActive(true);
         }
 
-        Vector3 position = this.transformSet.GetClosestFrom(transform).position;
+        Vector3 position = this.transformSet.GetClosestFrom(this.source).position;
         if (this.keepX)
         {
             position.x = this.originalPosition.x;

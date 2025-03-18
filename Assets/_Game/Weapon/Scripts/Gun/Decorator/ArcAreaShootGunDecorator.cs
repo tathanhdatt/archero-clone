@@ -11,8 +11,7 @@ public class ArcAreaShootGunDecorator : GunDecorator
     [SerializeField]
     private float endEulerAngle;
 
-    [SerializeField]
-    private float angleOffset;
+    private const float AngleOffset = -90f;
 
     [SerializeField, Min(1)]
     private int numberOfBullets;
@@ -32,7 +31,7 @@ public class ArcAreaShootGunDecorator : GunDecorator
             bullet.transform.position = transform.position;
             float eulerAngle = Random.Range(this.startEulerAngle, this.endEulerAngle);
             eulerAngle += transform.eulerAngles.y;
-            bullet.transform.rotation = Quaternion.Euler(0, eulerAngle + this.angleOffset, 0);
+            bullet.transform.rotation = Quaternion.Euler(0, eulerAngle + AngleOffset, 0);
             bullet.Initialize();
             bullet.Fire();
         }
@@ -41,7 +40,8 @@ public class ArcAreaShootGunDecorator : GunDecorator
     private void OnDrawGizmosSelected()
     {
         DebugExtension.DrawArc(transform.position, 1,
-            this.startEulerAngle, this.endEulerAngle,
+            this.startEulerAngle , 
+            this.endEulerAngle,
             transform.right, transform.forward);
     }
 }

@@ -7,9 +7,9 @@ public class CollectibleAdder : MonoBehaviour
     [SerializeField, Required]
     private CollectibleType expectedType;
 
-    public UnityEvent<int> onAdded;
+    public UnityEvent<float> onAdded;
 
-    public void Add(CollectibleType type, int amount)
+    public void Add(CollectibleType type, float amount)
     {
         if (type != this.expectedType) return;
         this.onAdded?.Invoke(amount);
