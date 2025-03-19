@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Dt.Attribute;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class GameEvent : ScriptableObjectArchitecture
     private bool logEventRaised;
 
     private readonly List<GameEventListener> listeners = new List<GameEventListener>(10);
+    public event Action OnRaised;
 
     [Button]
     public void Raise()
@@ -17,6 +19,7 @@ public class GameEvent : ScriptableObjectArchitecture
         {
             listener.OnEventRaised();
         }
+        OnRaised?.Invoke();
 
         if (this.logEventRaised)
         {

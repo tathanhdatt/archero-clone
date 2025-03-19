@@ -1,11 +1,10 @@
-﻿using Dt.Attribute;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class IceDamageHandler : MonoBehaviour
 {
-    [SerializeField, Required]
-    private FloatVariable iceHealthAmount;
+    [SerializeField]
+    private FloatReference iceHealthAmount;
 
     public UnityEvent onIced;
 

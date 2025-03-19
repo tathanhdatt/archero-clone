@@ -17,6 +17,9 @@ public class PlayerMovement : InitializableMono
 
     [SerializeField, Required]
     private Rigidbody rb;
+    
+    [SerializeField, Required]
+    private BoolVariable canMove;
 
     [Title("Read Only Variable")]
     [SerializeField, ReadOnly]
@@ -59,6 +62,7 @@ public class PlayerMovement : InitializableMono
 
     private void FixedUpdate()
     {
+        if (!this.canMove.Value) return;
         if (this.isChangedHorizontal)
         {
             HandleHorizontalInput();
@@ -79,7 +83,6 @@ public class PlayerMovement : InitializableMono
             {
                 this.isStopped = false;
                 this.onStartMoved?.Invoke();
-                this.rb.isKinematic = false;
             }
         }
         else
@@ -88,8 +91,8 @@ public class PlayerMovement : InitializableMono
             if (this.isMoving)
             {
                 this.isMoving = false;
+                this.rb.linearVelocity = Vector3.zero;
                 this.onStop?.Invoke();
-                this.rb.isKinematic = true;
             }
         }
     }

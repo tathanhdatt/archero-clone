@@ -24,8 +24,6 @@ namespace Core.Game
         private Level currentLevel;
 
         public AbilityUpgradeData[] AbilityUpgradeDatas => this.abilityUpgradeDatas;
-        public IAudioService AudioService { get; private set; }
-        public IPoolService PoolService { get; private set; }
 
         private async void Awake()
         {
@@ -37,8 +35,6 @@ namespace Core.Game
             InitUICamera();
             await UniTask.CompletedTask;
             Application.targetFrameRate = 60;
-            InitPoolService();
-            InitAudioService();
         }
 
         private void InitUICamera()
@@ -54,17 +50,6 @@ namespace Core.Game
         private void DeactivateUICamera()
         {
             this.uiCamera.gameObject.SetActive(false);
-        }
-        private void InitAudioService()
-        {
-            AudioService = FindAnyObjectByType<NativeAudioService>();
-            ServiceLocator.Register(AudioService);
-        }
-
-        private void InitPoolService()
-        {
-            PoolService = FindAnyObjectByType<NativePoolService>();
-            ServiceLocator.Register(PoolService);
         }
 
         private async void Start()
@@ -125,27 +110,6 @@ namespace Core.Game
         private async void CombatLevelUpHandler()
         {
             await this.presenter.GetViewPresenter<ScrollSkillViewPresenter>().Show();
-        }
-
-#if UNITY_EDITOR
-        private void OnApplicationQuit()
-        {
-            SaveData();
-        }
-#else
-        private void OnApplicationPause(bool pauseStatus)
-        {
-            SaveData();
-        }
-#endif
-        private void SaveData()
-        {
-            SaveLevels();
-            PlayerPrefs.Save();
-        }
-
-        private void SaveLevels()
-        {
         }
     }
 }

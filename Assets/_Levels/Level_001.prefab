@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 65537
+    m_Bits: 65536
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 8fe6be2a1afebee4f904b82eda186182, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &5208295787671146767
 GameObject:
@@ -3100,6 +3100,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6728298827577531706}
+    - target: {fileID: 7938167859384459460, guid: 6bf5c51878435a640954589ae8a736a2, type: 3}
+      propertyPath: smoothTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -9,11 +9,15 @@ public class PlayerRotation : MonoBehaviour
     [SerializeField, Required]
     private Vector2Variable joystickAxis;
 
+    [SerializeField, Required]
+    private BoolVariable canRotate;
+
     [SerializeField]
     private float offset = 90;
 
     private void Update()
     {
+        if (!this.canRotate.Value) return;
         bool changedHorizontal = !Mathf.Approximately(this.joystickAxis.Value.x, Mathf.Epsilon);
         bool changedVertical = !Mathf.Approximately(this.joystickAxis.Value.y, Mathf.Epsilon);
         if (changedHorizontal || changedVertical)

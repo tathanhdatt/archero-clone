@@ -14,14 +14,18 @@ public class GameObjectFollower : MonoBehaviour
     private Vector3 offset;
 
     [SerializeField]
+    private float smoothTime;
+
+    [SerializeField]
     private bool ignoreX;
     
     [SerializeField]
     private bool ignoreY;
     
     [SerializeField]
-    
     private bool ignoreZ;
+
+    private Vector3 velocity;
 
     [Button("Update Position")]
     private void LateUpdate()
@@ -43,7 +47,9 @@ public class GameObjectFollower : MonoBehaviour
         {
             position.z = transform.position.z;
         }
-        transform.position = position;
+        transform.position = Vector3.SmoothDamp(
+            transform.position, 
+            position, ref this.velocity, this.smoothTime);
     }
 
     private void OnDrawGizmosSelected()

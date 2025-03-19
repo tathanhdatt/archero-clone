@@ -138,8 +138,8 @@ GameObject:
   - component: {fileID: 4569617143495493025}
   - component: {fileID: 1515899368328111853}
   - component: {fileID: 7568222600215943294}
-  - component: {fileID: 2254334369006787867}
   - component: {fileID: 4309596316155731917}
+  - component: {fileID: 2254334369006787867}
   - component: {fileID: -3425571407514703850}
   - component: {fileID: 8426592676672301708}
   - component: {fileID: 857376438440937924}
@@ -217,6 +217,24 @@ CapsuleCollider:
   m_Height: 2.12
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -0.46}
+--- !u!114 &4309596316155731917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8954228891343323134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07e192a38c24ad385393578a228b607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementStrategy: {fileID: 8426592676672301708}
+  targetProviderStrategy: {fileID: -3425571407514703850}
+  effectCollection: {fileID: 8957513595798275581}
+  onDespawn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2254334369006787867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,24 +271,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4309596316155731917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8954228891343323134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f07e192a38c24ad385393578a228b607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementStrategy: {fileID: 8426592676672301708}
-  targetProviderStrategy: {fileID: -3425571407514703850}
-  effectCollection: {fileID: 8957513595798275581}
-  onDespawn:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &-3425571407514703850
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -674,7 +674,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2acb4f483e421a8c1774a2503111db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceHealthAmount: {fileID: 11400000, guid: ed78061304eea41489cc35fc1430da9e, type: 2}
+  iceHealthAmount:
+    useConstant: 1
+    initValue: 123
+    value: 123
+    variable: {fileID: 0}
   onIced:
     m_PersistentCalls:
       m_Calls:

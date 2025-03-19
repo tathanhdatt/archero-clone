@@ -44,6 +44,7 @@ public class MoveForward : MovementStrategy
             this.useDurationVariable ? this.durationVariable.Value : this.durationValue;
         this.canMove = true;
         float speed = this.useForceVariable ? this.forceVariable.Value : this.forceValue;
+        this.rb.linearVelocity = Vector3.zero;
         this.rb.AddForce(source.forward * speed);
     }
 

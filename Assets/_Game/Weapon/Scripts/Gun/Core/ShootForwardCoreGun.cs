@@ -25,12 +25,12 @@ public class ShootForwardCoreGun : CoreGun
             (this.numberBullets.Value - 1) * transform.right / 2;
         for (int i = 0; i < this.numberBullets.Value; i++)
         {
-            Bullet bullet = Instantiate(this.bulletPrefab);
+            Bullet bullet = NativeObjectPooling.Spawn(this.bulletPrefab);
             Vector3 offset = position + this.spaceBetweenBullets * i * transform.right;
             bullet.transform.position = transform.position + offset;
             bullet.transform.forward = transform.forward;
             bullet.gameObject.SetActive(true);
-            bullet.Initialize();
+            bullet.Initialize(this.bulletPrefab);
             bullet.Fire();
         }
     }
