@@ -10,10 +10,20 @@ public class SetSpeedAnimatorStateDecorator : StateDecorator
 
     [SerializeField]
     private float speed;
-    
+
+    [SerializeField]
+    private bool setOnEnter;
+
+    [SerializeField]
+    private bool setOnExit;
+
     protected override async UniTask OnStateEnter()
     {
-        this.animator.speed = this.speed;
+        if (this.setOnEnter)
+        {
+            this.animator.speed = this.speed;
+        }
+
         await UniTask.CompletedTask;
     }
 
@@ -25,11 +35,19 @@ public class SetSpeedAnimatorStateDecorator : StateDecorator
     protected override async UniTask OnStateExit()
     {
         await UniTask.CompletedTask;
+        if (this.setOnExit)
+        {
+            this.animator.speed = this.speed;
+        }
     }
 
     public override void ResetName()
     {
         base.ResetName();
-        gameObject.name = $"Set speed of [{this.animator.name}] = {this.speed}";
+        string setOnEnterStr = this.setOnEnter ? "On Enter" : string.Empty;
+        string andStr = this.setOnEnter && this.setOnExit ? "&" : string.Empty;
+        string setOnExitStr = this.setOnExit ? "On Exit" : string.Empty;
+        string settingTime = $"{setOnEnterStr} {andStr} {setOnExitStr}";
+        gameObject.name = $"Set [{this.animator.name}]'s speed = {this.speed} {settingTime}";
     }
 }

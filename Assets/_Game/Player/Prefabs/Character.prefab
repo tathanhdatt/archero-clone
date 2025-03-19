@@ -176,11 +176,11 @@ MonoBehaviour:
   isEntered: 0
   isMet: 0
   animator: {fileID: 2871529025866706368}
-  animationName: 1H_Ranged_Aiming
+  animationName: 1H_Ranged_Shooting
   multiplier: 1
-  animationDuration: 0.53333336
+  animationDuration: 0.33333334
   isAnimationComplete: 0
-  animationClip: {fileID: 7400000, guid: 8ae9f155e59b7ab4e98969ca042cf5d1, type: 2}
+  animationClip: {fileID: 7400000, guid: 9e8b839541ad7e146bccbab4a0752beb, type: 2}
 --- !u!1 &511382520583767050
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
   - {fileID: 8505874802718690197}
   - {fileID: 7158620526534694062}
   - {fileID: 6480175430161229186}
+  isUpdating: 0
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -323,6 +324,7 @@ MonoBehaviour:
   - {fileID: 7797902962720649859}
   - {fileID: 3821587561255620331}
   - {fileID: 7888017658361191035}
+  isUpdating: 0
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -695,7 +697,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
@@ -1112,6 +1114,7 @@ MonoBehaviour:
   stateDecorators:
   - {fileID: 1620873480661723729}
   - {fileID: 2471777995957934472}
+  isUpdating: 0
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -1150,8 +1153,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4880007678403206416}
-  - {fileID: 6850351445083440304}
   - {fileID: 7166461944199789985}
+  - {fileID: 6850351445083440304}
   - {fileID: 791708832914838225}
   - {fileID: 976155332627863445}
   - {fileID: 5484237151346624721}
@@ -1185,11 +1188,12 @@ MonoBehaviour:
   nullState: {fileID: 4300251058131287987}
   stateDecorators:
   - {fileID: 3061025451882120400}
-  - {fileID: 3408545496798373214}
   - {fileID: 710718289361521530}
+  - {fileID: 3408545496798373214}
   - {fileID: 423282671967218817}
   - {fileID: 2898113088036602401}
   - {fileID: 350231508768830936}
+  isUpdating: 0
   onEnter:
     m_PersistentCalls:
       m_Calls: []

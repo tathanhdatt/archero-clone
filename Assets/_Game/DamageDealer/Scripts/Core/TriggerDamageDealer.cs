@@ -16,10 +16,10 @@ public class TriggerDamageDealer : DamageDealer
     [SerializeField, Required]
     private DamageTypeVariable damageType;
 
-    [SerializeField, ShowIf(nameof(damageType), DamageType.Collide)]
+    [SerializeField, ShowIf(nameof(HasCollideDamage))]
     private float delayDealDamageCollide;
 
-    [SerializeField, ShowIf(nameof(damageType), DamageType.Collide), ReadOnly]
+    [SerializeField, ShowIf(nameof(HasCollideDamage)), ReadOnly]
     private float elapsedTime;
 
     private Collider cachedCollider;
@@ -81,5 +81,10 @@ public class TriggerDamageDealer : DamageDealer
         }
         this.cachedDamageReceiver.TakeDamage(damageValue, type);
         this.onAfterDamage?.Invoke(this.cachedDamageReceiver, this.damage.Value);
+    }
+
+    private bool HasCollideDamage()
+    {
+        return this.damageType.Value.HasFlag(DamageType.Collide);
     }
 }

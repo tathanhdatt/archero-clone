@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_Cactus_Damage
   m_EditorClassIdentifier: 
   description: 
-  initValue: 0
-  value: 0
+  initValue: 20
+  value: 20
   logValueChanged: 0
-  min: 10
-  max: 30
+  min: -10
+  max: 10

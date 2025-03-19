@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881a291d25a8407a8e256b92d33dc9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: {fileID: 11400000, guid: 4c05f38bc4e2ace439978565f441701f, type: 2}
+  damage: {fileID: 11400000, guid: 5a7b9726743b7504ea3980370c76a7dc, type: 2}
   criticalHitChance: {fileID: 11400000, guid: b2c59d24204dc8d4f92d549269736b3b, type: 2}
   damageableTag: {fileID: 11400000, guid: 054143306554b674ea4964869f138a05, type: 2}
   damageType: {fileID: 11400000, guid: b834927dc81a2ca4a8f18e561b8771db, type: 2}

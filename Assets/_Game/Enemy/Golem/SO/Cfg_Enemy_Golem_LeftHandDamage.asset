@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_Golem_LeftHandDamage
   m_EditorClassIdentifier: 
   description: 
-  initValue: 0
-  value: 0
+  initValue: 25
+  value: 25
   logValueChanged: 0
-  min: 20
-  max: 30
+  min: -5
+  max: 15

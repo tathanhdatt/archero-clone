@@ -11,22 +11,16 @@ public class LookAtClosestYAxisDecorator : StateDecorator
     [SerializeField, ReadOnly]
     private Transform closest;
 
-    private bool canLook;
-
     protected override async UniTask OnStateEnter()
     {
         await UniTask.CompletedTask;
         this.closest = null;
-        this.canLook = true;
     }
 
     protected override async UniTask OnStateUpdate()
     {
         await UniTask.CompletedTask;
-        if (this.canLook)
-        {
-            LookAtClosest();
-        }
+        LookAtClosest();
     }
 
     private void LookAtClosest()
@@ -41,6 +35,5 @@ public class LookAtClosestYAxisDecorator : StateDecorator
     protected override async UniTask OnStateExit()
     {
         await UniTask.CompletedTask;
-        this.canLook = false;
     }
 }

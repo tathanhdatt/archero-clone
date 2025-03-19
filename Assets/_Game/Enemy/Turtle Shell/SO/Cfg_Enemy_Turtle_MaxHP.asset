@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_Turtle_MaxHP
   m_EditorClassIdentifier: 
   description: 
-  initValue: 200
-  value: 200
+  initValue: 444
+  value: 444
   logValueChanged: 0

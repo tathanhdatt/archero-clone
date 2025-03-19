@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Var_Player_Dymanic_Effect_LightDamage
   m_EditorClassIdentifier: 
   description: 
-  initValue: 0
+  initValue: 15
   value: 0
   logValueChanged: 0
-  min: 20
-  max: 40
+  min: -5
+  max: 10

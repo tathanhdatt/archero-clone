@@ -17,5 +17,5 @@ MonoBehaviour:
   currentLevel: 0
   updateComponents:
   - {fileID: 11400000, guid: ae15553168acb4a4291c30a6fe2ced85, type: 2}
-  - {fileID: 11400000, guid: 23c9afe08c8caed419c9686b909c2329, type: 2}
-  - {fileID: 11400000, guid: b5a2e7e0599562046bac121dd54ac470, type: 2}
+  - {fileID: 11400000, guid: ae15553168acb4a4291c30a6fe2ced85, type: 2}
+  - {fileID: 11400000, guid: ae15553168acb4a4291c30a6fe2ced85, type: 2}

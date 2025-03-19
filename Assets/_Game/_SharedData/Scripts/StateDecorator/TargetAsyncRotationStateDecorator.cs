@@ -11,7 +11,7 @@ public class TargetAsyncRotationStateDecorator : StateDecorator
 
     [SerializeField]
     private float duration;
-    
+
     private Tweener tweener;
 
     protected override async UniTask OnStateEnter()
@@ -20,7 +20,15 @@ public class TargetAsyncRotationStateDecorator : StateDecorator
         await UniTask.CompletedTask;
         Quaternion target = Quaternion.LookRotation(CalculateDirection());
         this.tweener = RootTransform.DORotateQuaternion(target, this.duration);
-        await this.tweener.AsyncWaitForCompletion();
+        await WaitForTween(this.tweener);
+    }
+
+    private UniTask WaitForTween(Tween tween)
+    {
+        AutoResetUniTaskCompletionSource source 
+            = AutoResetUniTaskCompletionSource.Create();
+        tween.OnComplete(() => source.TrySetResult());
+        return source.Task;
     }
 
     private Vector3 CalculateDirection()
@@ -37,6 +45,7 @@ public class TargetAsyncRotationStateDecorator : StateDecorator
     protected override async UniTask OnStateExit()
     {
         await UniTask.CompletedTask;
+        this.tweener.Complete(true);
         this.tweener?.Kill();
     }
 

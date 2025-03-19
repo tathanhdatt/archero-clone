@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_RedSlime_Damage
   m_EditorClassIdentifier: 
   description: 
-  initValue: 0
+  initValue: 20
   value: 0
   logValueChanged: 0
-  min: 20
-  max: 30
+  min: -10
+  max: 10

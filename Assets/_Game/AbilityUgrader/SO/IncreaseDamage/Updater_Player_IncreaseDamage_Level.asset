@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ecd9609b62749fb96b831ea2c878feb, type: 3}
-  m_Name: Var_Player_Dynamic_Damage
+  m_Script: {fileID: 11500000, guid: 8792e39db4164609a906f2c9c3cb8bde, type: 3}
+  m_Name: Updater_Player_IncreaseDamage_Level
   m_EditorClassIdentifier: 
-  description: 
-  initValue: 70
-  value: 10
-  logValueChanged: 0
+  modifiedType: 2
+  variable: {fileID: 11400000, guid: 5a7b9726743b7504ea3980370c76a7dc, type: 2}
+  percentage: 0.1
+  value: 0
+  description: Increase 10% damage
