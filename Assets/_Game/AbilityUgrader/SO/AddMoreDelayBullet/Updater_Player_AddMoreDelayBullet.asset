@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01b91d351ad44e3f93531c7f4617e72c, type: 3}
-  m_Name: Updater_Player_CritEffect
+  m_Script: {fileID: 11500000, guid: 6a4256f5057c4e2fa5b6bd09f15563c4, type: 3}
+  m_Name: Updater_Player_AddMoreDelayBullet
   m_EditorClassIdentifier: 
-  effectType: 0
-  triggerTable: {fileID: 11400000, guid: 6167ad3163da4c444aa6314d3201a891, type: 2}
-  value: 0
-  description: Enable Crit Effect
+  description: Multishot
+  type: 4
+  active: 1
+  triggerTable: {fileID: 11400000, guid: a6e898fcaa206ee4a8488c39bb457ca0, type: 2}

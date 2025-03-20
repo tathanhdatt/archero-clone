@@ -32,8 +32,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6531654698542854856}
-  - {fileID: 2398358771060772872}
   - {fileID: 3025519613534493628}
+  - {fileID: 2398358771060772872}
   - {fileID: 3474288279852333298}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,8 +65,8 @@ MonoBehaviour:
   nullState: {fileID: 1122121407296720653}
   stateDecorators:
   - {fileID: 7321450703075898620}
-  - {fileID: 5030252989874960298}
   - {fileID: 2975266338531721735}
+  - {fileID: 5030252989874960298}
   - {fileID: 4750507877498292033}
   isUpdating: 0
   onEnter:

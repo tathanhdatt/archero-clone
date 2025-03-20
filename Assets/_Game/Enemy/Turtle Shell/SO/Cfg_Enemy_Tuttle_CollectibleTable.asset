@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_Tuttle_CollectibleTable
   m_EditorClassIdentifier: 
   items:
-  - rate: 0.3
+  - rate: 0.1
     amountRange:
       min: 1
       max: 3
@@ -24,8 +24,8 @@ MonoBehaviour:
   - rate: 1
     amountRange:
       min: 5
-      max: 20
+      max: 10
     valueRange:
-      min: 20
-      max: 36
+      min: 12
+      max: 16
     prefab: {fileID: 9186408003935344504, guid: 3ec7371e3af49ef4eb06f670ba934498, type: 3}

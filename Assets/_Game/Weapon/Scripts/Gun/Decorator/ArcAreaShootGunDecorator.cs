@@ -33,6 +33,7 @@ public class ArcAreaShootGunDecorator : GunDecorator
             eulerAngle += transform.eulerAngles.y;
             bullet.transform.rotation = Quaternion.Euler(0, eulerAngle + AngleOffset, 0);
             bullet.Initialize(prefab);
+            bullet.gameObject.SetActive(true);
             bullet.Fire();
         }
     }

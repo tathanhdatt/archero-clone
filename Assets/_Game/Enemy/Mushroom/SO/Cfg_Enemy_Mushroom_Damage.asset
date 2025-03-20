@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_Mushroom_Damage
   m_EditorClassIdentifier: 
   description: 
-  initValue: 10
-  value: 10
+  initValue: 12
+  value: 12
   logValueChanged: 0

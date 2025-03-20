@@ -52,7 +52,7 @@ MonoBehaviour:
     right: 0
     left: 0
   offset: {x: 0, y: 15, z: -10}
-  smoothTime: 0.6
+  smoothTime: 0.2
   ignoreX: 1
   ignoreY: 0
   ignoreZ: 0

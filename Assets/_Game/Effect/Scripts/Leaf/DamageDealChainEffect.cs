@@ -19,7 +19,7 @@ public class DamageDealChainEffect : DamageDealEffectComponent
 
     [SerializeField, Required]
     private LineRenderer lineLight;
-    
+
     [SerializeField]
     private DamageType damageType;
 
@@ -72,7 +72,7 @@ public class DamageDealChainEffect : DamageDealEffectComponent
         {
             LineRenderer lineRenderer = Instantiate(this.lineLight);
             lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, 
+            lineRenderer.SetPosition(0,
                 this.detectedReceivers[i].transform.parent.position.ReplaceY(1));
             lineRenderer.SetPosition(1,
                 this.detectedReceivers[i + 1].transform.parent.position.ReplaceY(1));
@@ -84,7 +84,10 @@ public class DamageDealChainEffect : DamageDealEffectComponent
     {
         for (int i = this.lineRenderers.Count - 1; i >= 0; i--)
         {
-            Destroy(this.lineRenderers[i].gameObject);
+            if (this.lineRenderers[i] != null)
+            {
+                Destroy(this.lineRenderers[i].gameObject);
+            }
         }
 
         this.lineRenderers.Clear();

@@ -16,4 +16,4 @@ MonoBehaviour:
   variable: {fileID: 11400000, guid: 5a7b9726743b7504ea3980370c76a7dc, type: 2}
   percentage: 0.1
   value: 0
-  description: Increase 10% damage
+  description: Attack Boost 10%

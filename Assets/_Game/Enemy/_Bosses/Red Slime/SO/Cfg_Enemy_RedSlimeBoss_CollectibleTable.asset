@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_RedSlimeBoss_CollectibleTable
   m_EditorClassIdentifier: 
   items:
-  - rate: 0.2
+  - rate: 0.1
     amountRange:
       min: 1
       max: 2
@@ -23,9 +23,9 @@ MonoBehaviour:
     prefab: {fileID: 1448161864474638307, guid: 56400975de29abc46a64882c0c60c4fa, type: 3}
   - rate: 1
     amountRange:
-      min: 10
-      max: 15
+      min: 5
+      max: 10
     valueRange:
-      min: 20
-      max: 60
+      min: 12
+      max: 16
     prefab: {fileID: 9186408003935344504, guid: 3ec7371e3af49ef4eb06f670ba934498, type: 3}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Var_Player_Static_BaseDamage
   m_EditorClassIdentifier: 
   description: Initial damage of player
-  initValue: 10
-  value: 100
+  initValue: 66
+  value: 66
   logValueChanged: 0

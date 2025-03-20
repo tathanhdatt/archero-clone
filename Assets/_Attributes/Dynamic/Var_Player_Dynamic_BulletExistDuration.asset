@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Var_Player_Dynamic_BulletExistDuration
   m_EditorClassIdentifier: 
   description: 
-  initValue: 1
-  value: 0.528
+  initValue: 0.4
+  value: 0.4
   logValueChanged: 0

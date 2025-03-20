@@ -16,4 +16,4 @@ MonoBehaviour:
   skillName: 
   currentLevel: 0
   updateComponents:
-  - {fileID: 11400000, guid: c18275b95d9584740bcf7f4d7e4f90c1, type: 2}
+  - {fileID: 11400000, guid: 63b69c9ba7b7be0448dbbec7bf208d05, type: 2}

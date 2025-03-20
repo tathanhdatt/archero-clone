@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Var_Player_Dynamic_BulletBounce
   m_EditorClassIdentifier: 
   description: If this value was set is true, the bullet of the player is not bouncale
+  initValue: 1
   value: 1
   logValueChanged: 0

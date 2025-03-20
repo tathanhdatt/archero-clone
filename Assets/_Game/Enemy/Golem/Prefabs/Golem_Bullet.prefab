@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6209385297450433570}
   - component: {fileID: 3976967573515779232}
   - component: {fileID: 2226660738573018912}
+  - component: {fileID: 4565605150130684131}
   m_Layer: 13
   m_Name: Golem_Bullet
   m_TagString: Untagged
@@ -215,6 +216,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 2
+  onTimerEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2932939241683231578}
+        m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
+        m_MethodName: Despawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4565605150130684131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367019478082679324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11c3209a692433385ee42ed871b6603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTag: {fileID: 11400000, guid: d301b77c4a687b94f822ec71bd1d2e7e, type: 2}
+  onTagDetected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2932939241683231578}
+        m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
+        m_MethodName: Despawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6441491484252491906
 GameObject:
   m_ObjectHideFlags: 0

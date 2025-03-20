@@ -1,13 +1,16 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class DestroyAfterSecond : MonoBehaviour
+public class CooldownAndScaleDownGameObject : MonoBehaviour
 {
     [SerializeField]
     private float seconds;
-    
+
+    public UnityEvent onTimerEnd;
+
     private float elapsedTime;
-    
+
     private bool destroyed;
 
     private void OnEnable()
@@ -29,6 +32,11 @@ public class DestroyAfterSecond : MonoBehaviour
     private void ScaleDown()
     {
         transform.DOScale(Vector3.zero, 0.2f)
-            .OnComplete(()=>Destroy(gameObject));
+            .OnComplete(OnScaleCompletedHandler);
+    }
+
+    private void OnScaleCompletedHandler()
+    {
+        this.onTimerEnd?.Invoke();
     }
 }

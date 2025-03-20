@@ -43,6 +43,11 @@ public class NativeObjectPooling : MonoBehaviour
             WarmUp(prefab);
         }
 
+        if (Pools[prefab].Count == 0)
+        {
+            SpawnNewInstance(prefab);
+        }
+
         T go = Pools[prefab].Pop() as T;
         go?.transform.SetParent(parent);
         return go;
@@ -72,9 +77,14 @@ public class NativeObjectPooling : MonoBehaviour
         Pools.Add(prefab, newPool);
         for (int i = 0; i < amount; i++)
         {
-            T newInstance = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            Despawn(prefab, newInstance);
+            SpawnNewInstance(prefab);
         }
+    }
+
+    private static void SpawnNewInstance<T>(T prefab) where T : MonoBehaviour
+    {
+        T newInstance = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        Despawn(prefab, newInstance);
     }
 
     private static void PushIntoPool<T>(T prefab, T instance) where T : MonoBehaviour

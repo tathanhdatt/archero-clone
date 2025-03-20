@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd43f3de30f4220a9633c6c71b7d507, type: 3}
-  m_Name: Var_Player_Dynamic_Damage1
+  m_Script: {fileID: 11500000, guid: 6a4256f5057c4e2fa5b6bd09f15563c4, type: 3}
+  m_Name: Updater_Player_RearArrow
   m_EditorClassIdentifier: 
-  description: 
-  initValue: 0
-  value: 0
-  logValueChanged: 0
-  min: -5
-  max: 15
+  description: Rear Arrow + 1
+  type: 1
+  active: 1
+  triggerTable: {fileID: 11400000, guid: a6e898fcaa206ee4a8488c39bb457ca0, type: 2}

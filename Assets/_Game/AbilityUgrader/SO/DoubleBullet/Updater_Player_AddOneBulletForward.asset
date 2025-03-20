@@ -16,4 +16,4 @@ MonoBehaviour:
   variable: {fileID: 11400000, guid: f252442ef65fedb449ffed48b07b2040, type: 2}
   percentage: 0
   value: 1
-  description: Add one forward bullet
+  description: Front Arrow + 1

@@ -58,11 +58,12 @@ GameObject:
   m_Component:
   - component: {fileID: 263220731005690910}
   - component: {fileID: 7406217601309255173}
+  - component: {fileID: 1666134253913867055}
   - component: {fileID: 2160583185561929024}
   - component: {fileID: 7217928777118106101}
   - component: {fileID: 4935676364381611402}
   - component: {fileID: 8397220691413213879}
-  - component: {fileID: 1666134253913867055}
+  - component: {fileID: 2855336215909458595}
   m_Layer: 13
   m_Name: Enemy_Cactus_StraightBullet
   m_TagString: Untagged
@@ -114,6 +115,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &1666134253913867055
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075755388974983335}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2160583185561929024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,27 +225,34 @@ MonoBehaviour:
   useSOVariable: 1
   distanceVariable: {fileID: 11400000, guid: c6e0e68e01f62414293af27e15ffe592, type: 2}
   distanceValue: 0
---- !u!135 &1666134253913867055
-SphereCollider:
+--- !u!114 &2855336215909458595
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6075755388974983335}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11c3209a692433385ee42ed871b6603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTag: {fileID: 11400000, guid: d301b77c4a687b94f822ec71bd1d2e7e, type: 2}
+  onTagDetected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7217928777118106101}
+        m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
+        m_MethodName: Despawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &8728793116735910854
 PrefabInstance:
   m_ObjectHideFlags: 0

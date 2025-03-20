@@ -14,4 +14,9 @@ public class DamageTypeVariable : ScriptableObject
         get => this.value;
         set => this.value = value;
     }
+
+    private void OnEnable()
+    {
+        this.value = this.initValue;
+    }
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_Mushroom_MaxHP
   m_EditorClassIdentifier: 
   description: 
-  initValue: 600
-  value: 600
+  initValue: 300
+  value: 300
   logValueChanged: 0

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5e88f379d04f66aa6ea2a96417b6b7, type: 3}
+  m_Name: Cfg_Enemy_Cactus_CollectibleTable
+  m_EditorClassIdentifier: 
+  items:
+  - rate: 0.1
+    amountRange:
+      min: 1
+      max: 2
+    valueRange:
+      min: 40
+      max: 60
+    prefab: {fileID: 1448161864474638307, guid: 56400975de29abc46a64882c0c60c4fa, type: 3}
+  - rate: 1
+    amountRange:
+      min: 5
+      max: 12
+    valueRange:
+      min: 10
+      max: 20
+    prefab: {fileID: 9186408003935344504, guid: 3ec7371e3af49ef4eb06f670ba934498, type: 3}

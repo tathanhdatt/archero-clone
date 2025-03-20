@@ -66,8 +66,8 @@ namespace Core.Game
             Messenger.AddListener<int>(Message.Play, PlayHandler);
             // Messenger.AddListener(Message.LevelWin, LevelWinHandler);
             Messenger.AddListener(Message.ResetUpgradeData, ResetUpgradeDataHandler);
-            // await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Show();
-            PlayHandler(1);
+            await this.presenter.GetViewPresenter<NavigatorViewPresenter>().Show();
+            // PlayHandler(1);
         }
 
         private void ResetUpgradeDataHandler()

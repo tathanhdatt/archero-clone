@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 4396436616224602348}
   - component: {fileID: 1505958783479357455}
   - component: {fileID: 8660625539942449144}
-  - component: {fileID: 8536927675553897812}
   m_Layer: 13
   m_Name: Mushroom_Bullet
   m_TagString: Untagged
@@ -176,19 +175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformSet: {fileID: 11400000, guid: 21d1718cee4fef143a89e3b789a864fc, type: 2}
   source: {fileID: 4800408369186933012}
---- !u!114 &8536927675553897812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2172797180262485799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c11c3209a692433385ee42ed871b6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTag: {fileID: 11400000, guid: d301b77c4a687b94f822ec71bd1d2e7e, type: 2}
 --- !u!1 &5611086095795027583
 GameObject:
   m_ObjectHideFlags: 0

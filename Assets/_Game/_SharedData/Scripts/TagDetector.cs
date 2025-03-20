@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
-public class DestroyOnTriggerEnter : MonoBehaviour
+public class TagDetector : MonoBehaviour
 {
     [SerializeField]
     private Tag destroyTag;
+    
+    public UnityEvent onTagDetected;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,7 +14,7 @@ public class DestroyOnTriggerEnter : MonoBehaviour
         if (tags == null) return;
         if (tags.GetTags().Contains(this.destroyTag))
         {
-            Destroy(gameObject);
+            this.onTagDetected?.Invoke();
         }
     }
 }

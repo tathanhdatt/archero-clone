@@ -1458,18 +1458,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
-        m_MethodName: MetEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 424463872662066776}
         m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
         m_MethodName: MetEvent
@@ -1482,31 +1470,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
-        m_MethodName: MetEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2227430962347278500}
-        m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
-        m_MethodName: MetEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WaitEventRaisedCondition, Assembly-CSharp
         m_MethodName: MetEvent
         m_Mode: 1
@@ -2064,7 +2028,31 @@ MonoBehaviour:
         m_CallState: 2
   onExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e5e1fc66e81464e4c98b1b4e8d17624b, type: 2}
+        m_TargetAssemblyTypeName: CollectibleSpawnEvent, Assembly-CSharp
+        m_MethodName: SetSpawnPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1266858792998641919}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: e5e1fc66e81464e4c98b1b4e8d17624b, type: 2}
+        m_TargetAssemblyTypeName: CollectibleSpawnEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 18314f6734a7b1f41a97971c3426cd63, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CollectibleTable, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8031778886118761220
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,9 +2,9 @@
 
 public class FloatingJoystick : Joystick
 {
-    protected override void Start()
+    protected override void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         background.gameObject.SetActive(false);
     }
 

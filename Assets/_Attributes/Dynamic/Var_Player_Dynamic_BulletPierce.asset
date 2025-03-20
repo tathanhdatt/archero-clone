@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Var_Player_Dynamic_BulletPierce
   m_EditorClassIdentifier: 
   description: 
+  initValue: 0
   value: 0
   logValueChanged: 0

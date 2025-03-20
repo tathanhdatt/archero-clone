@@ -5,7 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
-public class TagDetector : Condition
+public class TagDetectorCondition : Condition
 {
     private bool isDetected;
 

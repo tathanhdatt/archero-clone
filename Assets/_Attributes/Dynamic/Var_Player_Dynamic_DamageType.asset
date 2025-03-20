@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ab35f32bb14602b238eb090b8c764a, type: 3}
   m_Name: Var_Player_Dynamic_DamageType
   m_EditorClassIdentifier: 
-  initValue: 32
+  initValue: 0
   value: 32

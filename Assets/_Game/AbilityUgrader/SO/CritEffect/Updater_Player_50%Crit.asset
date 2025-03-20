@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8792e39db4164609a906f2c9c3cb8bde, type: 3}
   m_Name: Updater_Player_50%Crit
   m_EditorClassIdentifier: 
-  modifiedType: 0
+  modifiedType: 2
   variable: {fileID: 11400000, guid: b2c59d24204dc8d4f92d549269736b3b, type: 2}
-  percentage: 0.5
-  value: 0
-  description: 50% crit
+  percentage: 0.1
+  value: 0.1
+  description: Increase crit chance

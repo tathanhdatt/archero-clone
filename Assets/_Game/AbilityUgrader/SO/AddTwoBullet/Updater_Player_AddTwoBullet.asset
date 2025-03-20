@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4256f5057c4e2fa5b6bd09f15563c4, type: 3}
   m_Name: Updater_Player_AddTwoBullet
   m_EditorClassIdentifier: 
-  description: Add two bullets
+  description: Diagonal Arrows
   type: 2
   active: 1
   triggerTable: {fileID: 11400000, guid: a6e898fcaa206ee4a8488c39bb457ca0, type: 2}

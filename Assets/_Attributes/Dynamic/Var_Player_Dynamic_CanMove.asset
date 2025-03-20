@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Var_Player_Dynamic_CanMove
   m_EditorClassIdentifier: 
   description: 
+  initValue: 1
   value: 1
   logValueChanged: 0

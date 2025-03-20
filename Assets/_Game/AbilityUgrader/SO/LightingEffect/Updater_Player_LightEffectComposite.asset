@@ -15,7 +15,4 @@ MonoBehaviour:
   components:
   - {fileID: 11400000, guid: 5c878db5717425c4ba8cb3859d729631, type: 2}
   - {fileID: 11400000, guid: ac6fea7ba98c8b2449e4662c5d8560d9, type: 2}
-  cachedDescription: 'Chain Damage Bullet
-
-
-'
+  cachedDescription: Bolt

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageType: {fileID: 11400000, guid: b834927dc81a2ca4a8f18e561b8771db, type: 2}
   expectedDamageType: 32
-  description: Can Freeze Enemy
+  description: Freeze

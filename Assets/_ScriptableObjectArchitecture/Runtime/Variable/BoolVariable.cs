@@ -5,6 +5,9 @@ using UnityEngine;
 public class BoolVariable : ScriptableObjectVariable
 {
     [SerializeField]
+    private bool initValue;
+
+    [SerializeField]
     private bool value;
 
     [SerializeField]
@@ -24,5 +27,15 @@ public class BoolVariable : ScriptableObjectVariable
                 Debug.Log($"[{name}]'s value was modified to: {value}", this);
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        ResetValue();
+    }
+
+    public void ResetValue()
+    {
+        Value = this.initValue;
     }
 }

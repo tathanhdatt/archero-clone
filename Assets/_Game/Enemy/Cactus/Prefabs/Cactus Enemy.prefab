@@ -108,7 +108,31 @@ MonoBehaviour:
         m_CallState: 2
   onExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e5e1fc66e81464e4c98b1b4e8d17624b, type: 2}
+        m_TargetAssemblyTypeName: CollectibleSpawnEvent, Assembly-CSharp
+        m_MethodName: SetSpawnPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3321802144797938446}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: e5e1fc66e81464e4c98b1b4e8d17624b, type: 2}
+        m_TargetAssemblyTypeName: CollectibleSpawnEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a237ec9d8158ed440b57524ef62fe418, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CollectibleTable, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &123383181665165416
 GameObject:
   m_ObjectHideFlags: 0

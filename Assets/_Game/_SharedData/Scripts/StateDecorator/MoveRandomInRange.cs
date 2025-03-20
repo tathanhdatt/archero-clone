@@ -8,7 +8,10 @@ using UnityEngine.Events;
 public class MoveRandomInRange : StateDecorator
 {
     [SerializeField]
-    private float range;
+    private float maxRange;
+
+    [SerializeField]
+    private float minRange;
 
     [SerializeField]
     private float speed;
@@ -25,12 +28,33 @@ public class MoveRandomInRange : StateDecorator
     protected override async UniTask OnStateEnter()
     {
         this.tweener?.Kill();
-        this.target = RootTransform.position + Random.insideUnitSphere * this.range;
+        this.target = GetRandomTarget();
+        this.target += RootTransform.position;
         this.target.y = RootTransform.position.y;
         await RotateToTarget();
         this.tweener = RootTransform.DOMove(this.target, this.speed);
         this.tweener.SetSpeedBased(true);
         this.tweener.OnComplete(OnMoveCompleted);
+    }
+
+    private Vector3 GetRandomTarget()
+    {
+        Vector3 randomTarget = Random.insideUnitSphere * this.maxRange;
+        if (Mathf.Abs(randomTarget.x) < this.minRange)
+        {
+            randomTarget.x = Mathf.Sign(randomTarget.x) * this.minRange;
+            float noise = Random.Range(0f, 1f);
+            randomTarget.x += noise;
+        }
+
+        if (Mathf.Abs(randomTarget.z) < this.minRange)
+        {
+            randomTarget.z = Mathf.Sign(randomTarget.z) * this.minRange;
+            float noise = Random.Range(0f, 1f);
+            randomTarget.z += noise;
+        }
+
+        return randomTarget;
     }
 
     private void OnMoveCompleted()
@@ -61,6 +85,6 @@ public class MoveRandomInRange : StateDecorator
     {
         DebugExtension.DrawCircle(
             transform.position, transform.up, Color.red,
-            this.range);
+            this.maxRange);
     }
 }
