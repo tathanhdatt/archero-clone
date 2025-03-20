@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Var_Player_Static_BaseHP
   m_EditorClassIdentifier: 
   description: 
-  initValue: 600
-  value: 600
+  initValue: 999
+  value: 999
   logValueChanged: 0
