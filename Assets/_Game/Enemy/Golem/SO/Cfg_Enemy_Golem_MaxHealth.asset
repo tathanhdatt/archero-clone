@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecd9609b62749fb96b831ea2c878feb, type: 3}
   m_Name: Cfg_Enemy_Golem_MaxHealth
   m_EditorClassIdentifier: 
-  initValue: 1000
-  value: 1000
+  description: 
+  initValue: 2222
+  value: 2222
+  logValueChanged: 0

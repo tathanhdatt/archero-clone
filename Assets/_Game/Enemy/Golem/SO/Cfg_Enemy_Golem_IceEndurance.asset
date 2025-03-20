@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cfg_Enemy_Golem_IceEndurance
   m_EditorClassIdentifier: 
   description: 
-  initValue: 222
-  value: 222
+  initValue: 666
+  value: 666
   logValueChanged: 0
